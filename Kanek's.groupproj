@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{6C943190-9970-472B-893D-EEEF12B5D0F0}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Principal\kaneks.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="kaneks">
+        <MSBuild Projects="Principal\kaneks.dproj"/>
+    </Target>
+    <Target Name="kaneks:Clean">
+        <MSBuild Projects="Principal\kaneks.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="kaneks:Make">
+        <MSBuild Projects="Principal\kaneks.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="kaneks"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="kaneks:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="kaneks:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
