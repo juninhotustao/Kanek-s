@@ -18,7 +18,10 @@ type
     function IsEmpty: boolean; override;
     function Active: boolean; override;
     function State: TDataSetState; override;
+
 //    function Filter(const AParams: array of const): TFilterProduto;
+    function NumeroVenId: integer;
+    function ValidaCabecalho: boolean;
 
     procedure PostItem;
     procedure CancelItem;
@@ -210,6 +213,14 @@ begin
   Result := DmModelDav.CDSItem.IsEmpty;
 end;
 
+function TControllerDav.NumeroVenId: integer;
+const
+  SQL =
+    ' SELECT max(ven_id) from VENDA ';
+begin
+  Result := dmCon.OpenSQL(SQL, []);
+end;
+
 procedure TControllerDav.Open;
 begin
   DmModelDav.CDS.Open;
@@ -271,6 +282,14 @@ end;
 function TControllerDav.StateItem: TDataSetState;
 begin
   Result := DmModelDav.CDSItem.State;
+end;
+
+function TControllerDav.ValidaCabecalho: boolean;
+begin
+  Result := True;
+
+  if DmModelDav.CDS.IsEmpty then
+    Result := False;
 end;
 
 end.

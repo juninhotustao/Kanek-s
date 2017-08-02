@@ -2,6 +2,7 @@ inherited FVendaBase: TFVendaBase
   Caption = 'FVendaBase'
   ClientHeight = 486
   ClientWidth = 676
+  PopupMenu = PopMenu
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   OnKeyDown = FormKeyDown
@@ -38,7 +39,58 @@ inherited FVendaBase: TFVendaBase
         676
         47)
       inherited BtnNovo: TButton
+        Left = 6
+        Top = 5
+        Width = 45
+        Height = 34
         OnClick = BtnNovoClick
+        ExplicitLeft = 6
+        ExplicitTop = 5
+        ExplicitWidth = 45
+        ExplicitHeight = 34
+      end
+      inherited btnSair: TButton
+        Left = 257
+        Top = 5
+        Width = 45
+        Height = 34
+        ExplicitLeft = 257
+        ExplicitTop = 5
+        ExplicitWidth = 45
+        ExplicitHeight = 34
+      end
+      inherited btnAlterar: TButton
+        Left = 68
+        Top = 5
+        Width = 45
+        Height = 34
+        ExplicitLeft = 68
+        ExplicitTop = 5
+        ExplicitWidth = 45
+        ExplicitHeight = 34
+      end
+      inherited btnExcluir: TButton
+        Left = 130
+        Top = 5
+        Width = 45
+        Height = 34
+        ExplicitLeft = 130
+        ExplicitTop = 5
+        ExplicitWidth = 45
+        ExplicitHeight = 34
+      end
+      object btnSalvar: TButton
+        Left = 193
+        Top = 5
+        Width = 45
+        Height = 34
+        Anchors = [akLeft, akBottom]
+        Caption = '&Salvar'
+        HotImageIndex = 72
+        ImageAlignment = iaTop
+        ImageIndex = 72
+        Images = DmImagens.Img
+        TabOrder = 4
       end
     end
     object gpCliente: TGroupBox
@@ -62,9 +114,9 @@ inherited FVendaBase: TFVendaBase
         ParentFont = False
       end
       object lblNomeCliente: TLabel
-        Left = 71
+        Left = 124
         Top = 11
-        Width = 575
+        Width = 523
         Height = 18
         AutoSize = False
         Caption = '...'
@@ -152,6 +204,17 @@ inherited FVendaBase: TFVendaBase
         Height = 21
         TabOrder = 1
       end
+      object dbIdCliente: TDBEdit
+        Left = 56
+        Top = 10
+        Width = 62
+        Height = 21
+        DataField = 'CLI_ID'
+        DataSource = DS
+        Enabled = False
+        TabOrder = 2
+        OnExit = dbIdClienteExit
+      end
     end
   end
   inherited DS: TDataSource
@@ -162,5 +225,9 @@ inherited FVendaBase: TFVendaBase
   object DsItem: TDataSource
     Left = 376
     Top = 344
+  end
+  object PopMenu: TPopupMenu
+    Left = 256
+    Top = 248
   end
 end

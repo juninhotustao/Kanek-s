@@ -27,6 +27,7 @@ type
     function State: TDataSetState; override;
     function Filter(const AParams: array of const): TFilterProduto;
 
+    function PesquisaCliente(ACliID: string): Variant;
     constructor create;
     destructor destroy; override;
   protected
@@ -156,6 +157,22 @@ end;
 procedure TControllerVenda.Open;
 begin
   DmModelVenda.CDS.Open;
+end;
+
+function TControllerVenda.PesquisaCliente(ACliID: string): Variant;
+const
+  SQL =
+    ' SELECT CLI_NOME FROM CLIENTES WHERE CLI_ID = :CLI_ID ';
+begin
+  with TClientDataSet.Create(nil) do
+  try
+    Data := dmCon.GetData(SQL, [ACliID]);
+
+    Result := FieldByName('CLI_NOME').Value;
+  finally
+    Free;
+  end;
+
 end;
 
 procedure TControllerVenda.Post;
