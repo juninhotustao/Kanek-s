@@ -39,7 +39,6 @@ object FConsulta: TFConsulta
       TitleFont.Height = -11
       TitleFont.Name = 'Tahoma'
       TitleFont.Style = []
-      OnDblClick = btnAlterarClick
     end
     object pnlConsulta: TPanel
       Left = 0
@@ -100,7 +99,6 @@ object FConsulta: TFConsulta
         ImageIndex = 92
         Images = DmImagens.Img
         TabOrder = 2
-        OnClick = btnAlterarClick
       end
       object btnExcluir: TButton
         Left = 161

@@ -15,6 +15,34 @@ inherited FVendaBase: TFVendaBase
     Height = 486
     ExplicitWidth = 676
     ExplicitHeight = 486
+    object lblDescricaoTotalVenda: TLabel [0]
+      Left = 472
+      Top = 296
+      Width = 116
+      Height = 18
+      AutoSize = False
+      Caption = 'Total da Venda: '
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -15
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object lblTotalVenda: TLabel [1]
+      Left = 594
+      Top = 296
+      Width = 180
+      Height = 18
+      AutoSize = False
+      Caption = '0,00'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
     inherited Grid: TDBGrid
       Top = 326
       Width = 676
@@ -95,9 +123,9 @@ inherited FVendaBase: TFVendaBase
     end
     object gpCliente: TGroupBox
       Left = 6
-      Top = 51
+      Top = 53
       Width = 659
-      Height = 88
+      Height = 156
       TabOrder = 3
       object lblCliente: TLabel
         Left = 8
@@ -155,34 +183,6 @@ inherited FVendaBase: TFVendaBase
         Font.Style = []
         ParentFont = False
       end
-      object lblDescricaoTotalVenda: TLabel
-        Left = 420
-        Top = 57
-        Width = 116
-        Height = 18
-        AutoSize = False
-        Caption = 'Total da Venda: '
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -15
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
-      object lblTotalVenda: TLabel
-        Left = 549
-        Top = 56
-        Width = 180
-        Height = 18
-        AutoSize = False
-        Caption = '0,00'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
       object dtDataVenda: TwwDBDateTimePicker
         Left = 8
         Top = 58
@@ -214,6 +214,13 @@ inherited FVendaBase: TFVendaBase
         Enabled = False
         TabOrder = 2
         OnExit = dbIdClienteExit
+      end
+      object dbObservacao: TDBMemo
+        Left = 399
+        Top = 40
+        Width = 248
+        Height = 73
+        TabOrder = 3
       end
     end
   end

@@ -1,15 +1,18 @@
 inherited FDav: TFDav
   Caption = 'Documento Auxiliar de Venda'
-  ClientHeight = 495
-  ExplicitHeight = 523
+  ClientHeight = 552
+  ClientWidth = 688
+  ExplicitWidth = 694
+  ExplicitHeight = 580
   PixelsPerInch = 96
   TextHeight = 13
   inherited pnlGrid: TPanel
-    Height = 495
-    ExplicitHeight = 495
+    Width = 688
+    Height = 552
+    ExplicitHeight = 525
     object lblMenuItem: TLabel [0]
-      Left = 9
-      Top = 176
+      Left = 273
+      Top = 206
       Width = 406
       Height = 13
       Caption = 
@@ -22,15 +25,30 @@ inherited FDav: TFDav
       Font.Style = [fsBold]
       ParentFont = False
     end
+    inherited lblDescricaoTotalVenda: TLabel
+      Left = 448
+      Top = 345
+      ExplicitLeft = 448
+      ExplicitTop = 345
+    end
+    inherited lblTotalVenda: TLabel
+      Left = 570
+      Top = 345
+      ExplicitLeft = 570
+      ExplicitTop = 345
+    end
     inherited Grid: TDBGrid
-      Top = 311
+      Top = 368
+      Width = 688
       Height = 184
       DataSource = DsItem
       Font.Style = [fsBold]
       ParentFont = False
+      TabOrder = 4
       Columns = <
         item
           Expanded = False
+          FieldName = 'ITV_REFER'
           Title.Caption = 'Refer'#234'ncia'
           Title.Font.Charset = DEFAULT_CHARSET
           Title.Font.Color = clWindowText
@@ -42,6 +60,7 @@ inherited FDav: TFDav
         end
         item
           Expanded = False
+          FieldName = 'ITV_DESCRICAO'
           Title.Caption = 'Descri'#231#227'o'
           Title.Font.Charset = DEFAULT_CHARSET
           Title.Font.Color = clWindowText
@@ -54,6 +73,7 @@ inherited FDav: TFDav
         item
           Alignment = taCenter
           Expanded = False
+          FieldName = 'ITV_UN'
           Title.Caption = 'UN'
           Title.Font.Charset = DEFAULT_CHARSET
           Title.Font.Color = clWindowText
@@ -65,6 +85,7 @@ inherited FDav: TFDav
         end
         item
           Expanded = False
+          FieldName = 'ITV_QTDE'
           Title.Caption = 'Qtde.'
           Title.Font.Charset = DEFAULT_CHARSET
           Title.Font.Color = clWindowText
@@ -76,6 +97,7 @@ inherited FDav: TFDav
         end
         item
           Expanded = False
+          FieldName = 'ITV_DESCONTO'
           Title.Caption = 'Desconto'
           Title.Font.Charset = DEFAULT_CHARSET
           Title.Font.Color = clWindowText
@@ -87,6 +109,7 @@ inherited FDav: TFDav
         end
         item
           Expanded = False
+          FieldName = 'ITV_PRECOVENDA'
           Title.Caption = 'Pre'#231'o Item'
           Title.Font.Charset = DEFAULT_CHARSET
           Title.Font.Color = clWindowText
@@ -98,6 +121,7 @@ inherited FDav: TFDav
         end
         item
           Expanded = False
+          FieldName = 'ITV_VALORTOTAL'
           Title.Caption = 'Total Item'
           Title.Font.Charset = DEFAULT_CHARSET
           Title.Font.Color = clWindowText
@@ -108,17 +132,30 @@ inherited FDav: TFDav
           Visible = True
         end>
     end
+    inherited pnlConsulta: TPanel
+      Width = 688
+      TabOrder = 3
+    end
     inherited pnlRodape: TPanel
+      Width = 688
+      TabOrder = 0
+      inherited btnAlterar: TButton
+        OnClick = btnAlterarClick
+      end
+      inherited btnExcluir: TButton
+        OnClick = btnExcluirClick
+      end
       inherited btnSalvar: TButton
         OnClick = btnSalvarClick
       end
     end
     inherited gpCliente: TGroupBox
-      Top = 53
-      Height = 89
+      Left = 20
+      Height = 117
       Enabled = False
-      ExplicitTop = 53
-      ExplicitHeight = 89
+      TabOrder = 1
+      ExplicitLeft = 20
+      ExplicitHeight = 117
       inherited lblCliente: TLabel
         Left = 22
         Width = 47
@@ -150,22 +187,15 @@ inherited FDav: TFDav
         ExplicitTop = 59
         ExplicitWidth = 61
       end
-      inherited lblDescricaoTotalVenda: TLabel
-        Left = 433
-        ExplicitLeft = 433
-      end
-      inherited lblTotalVenda: TLabel
-        Left = 562
-        ExplicitLeft = 562
-      end
       inherited dtDataVenda: TwwDBDateTimePicker
         Left = 232
         Width = 144
         DataField = 'VEN_DATA'
         DataSource = DS
+        Date = 42949.000000000000000000
+        Time = 0.423706793983001300
         TabOrder = 1
         DisplayFormat = 'dd/mm/yyyy  HH:MM:SS'
-        OnExit = dtDataVendaExit
         ExplicitLeft = 232
         ExplicitWidth = 144
       end
@@ -183,25 +213,50 @@ inherited FDav: TFDav
         TabOrder = 0
         ExplicitLeft = 71
       end
+      inherited dbObservacao: TDBMemo
+        Left = 390
+        Top = 35
+        Width = 261
+        Height = 74
+        BevelInner = bvNone
+        BevelOuter = bvNone
+        DataField = 'VEN_OBSERVACAO'
+        DataSource = DS
+        OnExit = dbObservacaoExit
+        ExplicitLeft = 390
+        ExplicitTop = 35
+        ExplicitWidth = 261
+        ExplicitHeight = 74
+      end
     end
     inline frameProdutoDav: TframeProduto
-      Left = 6
-      Top = 192
+      Left = 20
+      Top = 222
       Width = 665
       Height = 117
       Enabled = False
-      TabOrder = 4
-      ExplicitLeft = 6
-      ExplicitTop = 192
+      TabOrder = 2
+      ExplicitLeft = 20
+      ExplicitTop = 222
       ExplicitHeight = 117
       inherited gpProduto: TGroupBox
         Left = 0
+        Top = 2
         ExplicitLeft = 0
+        ExplicitTop = 2
         inherited lblDescProduto: TLabel
           Left = 253
           Width = 386
           ExplicitLeft = 253
           ExplicitWidth = 386
+        end
+        inherited lblRefProduto: TLabel
+          Left = 11
+          Top = 18
+          Width = 71
+          ExplicitLeft = 11
+          ExplicitTop = 18
+          ExplicitWidth = 71
         end
         inherited lblDescricaoValorUnit: TLabel
           Left = 208
@@ -215,14 +270,12 @@ inherited FDav: TFDav
           Left = 510
           ExplicitLeft = 510
         end
-        inherited edtReferencia: TEdit
-          OnExit = frameProdutoDavedtReferenciaExit
-        end
         inherited dbDesconto: TDBEdit
           Left = 355
           Width = 94
           DataField = 'ITV_DESCONTO'
           DataSource = DsItem
+          OnExit = frameProdutoDavdbDescontoExit
           ExplicitLeft = 355
           ExplicitWidth = 94
         end
@@ -248,7 +301,57 @@ inherited FDav: TFDav
           ExplicitLeft = 208
           ExplicitWidth = 94
         end
+        inherited dbReferencia: TDBEdit
+          Top = 16
+          DataField = 'ITV_REFER'
+          DataSource = DsItem
+          ExplicitTop = 16
+        end
       end
+    end
+    object btnNovoItem: TButton
+      Left = 306
+      Top = 179
+      Width = 24
+      Height = 25
+      ImageAlignment = iaCenter
+      ImageIndex = 75
+      Images = DmImagens.Img
+      TabOrder = 5
+      OnClick = btnNovoItemClick
+    end
+    object btnAlterarItem: TButton
+      Left = 410
+      Top = 179
+      Width = 24
+      Height = 25
+      ImageAlignment = iaCenter
+      ImageIndex = 91
+      Images = DmImagens.Img
+      TabOrder = 6
+      OnClick = btnAlterarItemClick
+    end
+    object btnExcluirItem: TButton
+      Left = 529
+      Top = 179
+      Width = 24
+      Height = 25
+      ImageAlignment = iaCenter
+      ImageIndex = 83
+      Images = DmImagens.Img
+      TabOrder = 7
+      OnClick = btnExcluirItemClick
+    end
+    object btnCancelarItem: TButton
+      Left = 637
+      Top = 179
+      Width = 24
+      Height = 25
+      ImageAlignment = iaCenter
+      ImageIndex = 17
+      Images = DmImagens.Img
+      TabOrder = 8
+      OnClick = btnCancelarItemClick
     end
   end
   inherited DS: TDataSource

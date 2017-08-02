@@ -25,7 +25,7 @@ type
 
     procedure PostItem;
     procedure CancelItem;
-    procedure OpenItem;
+    procedure OpenItem(AVenId: integer);
     procedure InsertItem;
     procedure EditItem;
     procedure DeleteItem;
@@ -43,7 +43,7 @@ type
 implementation
 
 uses
-  UDmModelDav, UDmCon, VarRecs, UFDav;
+  UDmModelDav, UDmCon, VarRecs, UFDav, UFrameProduto;
 
 { TControllerProdutoInventario }
 
@@ -226,8 +226,10 @@ begin
   DmModelDav.CDS.Open;
 end;
 
-procedure TControllerDav.OpenItem;
+procedure TControllerDav.OpenItem(AVenId: integer);
 begin
+  DmModelDav.CDSItem.Params[0].Value := AVenId;
+
   DmModelDav.CDSItem.Open;
 end;
 
@@ -252,6 +254,7 @@ begin
 
   try
     DmModelDav.CDSItem.Post;
+
   except
       on E: Exception do
         if E.Message <> 'Operation aborted' then

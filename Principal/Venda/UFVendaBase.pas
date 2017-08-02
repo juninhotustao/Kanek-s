@@ -18,11 +18,12 @@ type
     dtDataVenda: TwwDBDateTimePicker;
     lblNumVenda: TLabel;
     dbNumVenda: TDBEdit;
-    lblDescricaoTotalVenda: TLabel;
-    lblTotalVenda: TLabel;
     btnSalvar: TButton;
     PopMenu: TPopupMenu;
     dbIdCliente: TDBEdit;
+    dbObservacao: TDBMemo;
+    lblDescricaoTotalVenda: TLabel;
+    lblTotalVenda: TLabel;
     procedure edtReferenciaExit(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);

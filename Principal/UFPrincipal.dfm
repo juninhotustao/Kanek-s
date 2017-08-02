@@ -1,11 +1,9 @@
 object UFrmPrincipal: TUFrmPrincipal
   Left = 0
   Top = 0
-  BorderIcons = [biSystemMenu]
-  BorderStyle = bsSingle
   Caption = 'Kanek'#39's'
-  ClientHeight = 443
-  ClientWidth = 721
+  ClientHeight = 370
+  ClientWidth = 590
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -16,17 +14,19 @@ object UFrmPrincipal: TUFrmPrincipal
   Menu = MainMenu1
   OldCreateOrder = False
   Position = poScreenCenter
-  WindowState = wsMaximized
   OnClose = FormClose
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object pnlPrincipal: TPanel
     Left = 0
     Top = 0
-    Width = 721
-    Height = 443
+    Width = 590
+    Height = 370
     Align = alClient
     TabOrder = 0
+    ExplicitWidth = 721
+    ExplicitHeight = 443
   end
   object MainMenu1: TMainMenu
     Left = 112

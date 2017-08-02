@@ -11,9 +11,9 @@ object frameProduto: TframeProduto
     Height = 113
     TabOrder = 0
     object lblDescProduto: TLabel
-      Left = 284
+      Left = 251
       Top = 17
-      Width = 418
+      Width = 393
       Height = 18
       AutoSize = False
       Caption = '...'
@@ -111,48 +111,52 @@ object frameProduto: TframeProduto
       ParentFont = False
     end
     object btnPesqProduto: TBitBtn
-      Left = 217
+      Left = 204
       Top = 14
-      Width = 31
+      Width = 24
       Height = 21
       Caption = '...'
-      TabOrder = 5
-    end
-    object edtReferencia: TEdit
-      Left = 84
-      Top = 14
-      Width = 126
-      Height = 21
-      TabOrder = 0
-      OnExit = edtReferenciaExit
+      TabOrder = 4
     end
     object dbDesconto: TDBEdit
       Left = 284
       Top = 76
       Width = 112
       Height = 21
-      TabOrder = 3
+      TabOrder = 2
+      OnExit = dbDescontoExit
     end
     object dbQuantidade: TDBEdit
       Left = 8
       Top = 76
       Width = 112
       Height = 21
-      TabOrder = 1
+      TabOrder = 0
+      OnExit = dbQuantidadeExit
     end
     object dbTotalItem: TDBEdit
       Left = 433
       Top = 76
       Width = 112
       Height = 21
-      TabOrder = 4
+      Enabled = False
+      TabOrder = 3
     end
     object dbVlrVenda: TDBEdit
       Left = 178
       Top = 76
       Width = 89
       Height = 21
-      TabOrder = 2
+      TabOrder = 1
+      OnExit = dbVlrVendaExit
+    end
+    object dbReferencia: TDBEdit
+      Left = 83
+      Top = 14
+      Width = 112
+      Height = 21
+      TabOrder = 5
+      OnExit = dbReferenciaExit
     end
   end
 end

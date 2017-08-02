@@ -25,7 +25,6 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure btnSairClick(Sender: TObject);
-    procedure btnAlterarClick(Sender: TObject);
   protected
     FController: TController;
   public
@@ -37,14 +36,9 @@ var
 
 implementation
 
-uses UDmImagens;
+uses UDmImagens, UDmModel;
 
 {$R *.dfm}
-
-procedure TFConsulta.btnAlterarClick(Sender: TObject);
-begin
-  //
-end;
 
 procedure TFConsulta.btnSairClick(Sender: TObject);
 begin

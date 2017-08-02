@@ -24,6 +24,7 @@ type
     procedure FornecedoresClick(Sender: TObject);
     procedure Sair1Click(Sender: TObject);
     procedure VendaClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -48,6 +49,11 @@ end;
 procedure TUFrmPrincipal.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   Application.Terminate;
+end;
+
+procedure TUFrmPrincipal.FormShow(Sender: TObject);
+begin
+  Self.WindowState := wsMaximized;
 end;
 
 procedure TUFrmPrincipal.FornecedoresClick(Sender: TObject);
