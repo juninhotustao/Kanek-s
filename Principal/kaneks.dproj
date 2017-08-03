@@ -195,6 +195,16 @@
             <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
+        <DCCReference Include="Pesquisa\Cliente\UDmModelPesqCliente.pas">
+            <Form>DmModelPesqCliente</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Pesquisa\Cliente\U_PesqCliente.pas">
+            <Form>frm_PesqCliente</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Pesquisa\Cliente\UControllerPesqCliente.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -221,6 +231,12 @@
             </Delphi.Personality>
             <Deployment>
                 <DeployFile LocalName="Win32\Debug\kaneks.exe" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>kaneks.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\..\Sistema\kaneks.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>kaneks.exe</RemoteName>
                         <Overwrite>true</Overwrite>

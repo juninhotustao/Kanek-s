@@ -50,6 +50,56 @@ inherited DmModelDav: TDmModelDav
         Name = 'VEN_ID'
         ParamType = ptInput
       end>
+    object DTSItemITV_ID: TIntegerField
+      FieldName = 'ITV_ID'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object DTSItemVEN_ID: TIntegerField
+      FieldName = 'VEN_ID'
+    end
+    object DTSItemVEN_DATA: TSQLTimeStampField
+      FieldName = 'VEN_DATA'
+    end
+    object DTSItemPRO_ID: TIntegerField
+      FieldName = 'PRO_ID'
+    end
+    object DTSItemITV_REFER: TStringField
+      FieldName = 'ITV_REFER'
+    end
+    object DTSItemITV_QTDE: TFMTBCDField
+      FieldName = 'ITV_QTDE'
+      Precision = 15
+      Size = 3
+    end
+    object DTSItemITV_DESCONTO: TFMTBCDField
+      FieldName = 'ITV_DESCONTO'
+      Precision = 15
+      Size = 2
+    end
+    object DTSItemITV_PRECOVENDA: TFMTBCDField
+      FieldName = 'ITV_PRECOVENDA'
+      Precision = 15
+      Size = 3
+    end
+    object DTSItemITV_VALORTOTAL: TFMTBCDField
+      FieldName = 'ITV_VALORTOTAL'
+      Precision = 15
+      Size = 2
+    end
+    object DTSItemITV_DATA: TSQLTimeStampField
+      FieldName = 'ITV_DATA'
+    end
+    object DTSItemITV_UN: TStringField
+      FieldName = 'ITV_UN'
+      Size = 10
+    end
+    object DTSItemITV_DESCRICAO: TStringField
+      FieldName = 'ITV_DESCRICAO'
+      Size = 100
+    end
+  end
+  inherited DSPItem: TDataSetProvider
+    AfterUpdateRecord = DSPItemAfterUpdateRecord
   end
   inherited CDSItem: TClientDataSet
     Params = <
@@ -60,6 +110,9 @@ inherited DmModelDav: TDmModelDav
       end>
     BeforePost = CDSItemBeforePost
     AfterPost = CDSItemAfterPost
+    inherited CDSItemITV_ID: TIntegerField
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
     inherited CDSItemITV_QTDE: TFMTBCDField
       DisplayFormat = '#,##0.000'
     end
@@ -71,6 +124,9 @@ inherited DmModelDav: TDmModelDav
     end
     inherited CDSItemITV_VALORTOTAL: TFMTBCDField
       DisplayFormat = '#,##0.00'
+    end
+    inherited CDSItemITV_UN: TStringField
+      Alignment = taCenter
     end
   end
 end

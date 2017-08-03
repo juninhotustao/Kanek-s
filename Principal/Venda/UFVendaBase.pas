@@ -24,6 +24,7 @@ type
     dbObservacao: TDBMemo;
     lblDescricaoTotalVenda: TLabel;
     lblTotalVenda: TLabel;
+    btnPesqCliente: TBitBtn;
     procedure edtReferenciaExit(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);

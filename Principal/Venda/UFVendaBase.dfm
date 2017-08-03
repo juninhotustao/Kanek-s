@@ -142,9 +142,9 @@ inherited FVendaBase: TFVendaBase
         ParentFont = False
       end
       object lblNomeCliente: TLabel
-        Left = 124
+        Left = 154
         Top = 11
-        Width = 523
+        Width = 492
         Height = 18
         AutoSize = False
         Caption = '...'
@@ -221,6 +221,14 @@ inherited FVendaBase: TFVendaBase
         Width = 248
         Height = 73
         TabOrder = 3
+      end
+      object btnPesqCliente: TBitBtn
+        Left = 124
+        Top = 10
+        Width = 24
+        Height = 21
+        Caption = '...'
+        TabOrder = 4
       end
     end
   end

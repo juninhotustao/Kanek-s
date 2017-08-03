@@ -84,16 +84,16 @@ begin
   search := string(AParams[1].VAnsiString);
 
   case toInteger(AParams[0]) of
-    0: Begin  //Descrição
+    0: begin  //Descrição
           DmModelPesqProduto.DTS.CommandText:= SQL+' where (pro_descricao like :pro_descricao) order by PRO_DESCRICAO ';
           //
           SearchByParams([search + '%'])
-       End;
-    1: Begin //Referencia
+       end;
+    1: begin //Referencia
           DmModelPesqProduto.DTS.CommandText:= SQL+' where (pro_referencia like :referencia) order by PRO_REFERENCIA ';
           //
           SearchByParams([search + '%']);
-       End;
+       end;
   end;
 
 

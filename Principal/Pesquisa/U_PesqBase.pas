@@ -9,14 +9,15 @@ uses
 
 type
   Tfrm_PesqBase = class(TForm)
-    Panel4: TPanel;
+    pnlPrincipal: TPanel;
     Grid: TDBGrid;
-    Panel2: TPanel;
+    pnlBusca: TPanel;
     edt_pesq: TEdit;
     DS: TDataSource;
     cmbTipoBusca: TComboBox;
     btnPesquisar: TButton;
-    lblBusca: TLabel;
+    lblDescricaoBusca: TLabel;
+    lblTipoBusca: TLabel;
     procedure edt_pesqKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure GridDblClick(Sender: TObject);
@@ -29,7 +30,6 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnPesquisarClick(Sender: TObject);
-    procedure cmbTipoBuscaClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
   private
     procedure EditFieldExit(Sender: TObject);
@@ -46,6 +46,8 @@ var
 implementation
 
 {$R *.dfm}
+
+uses UDmImagens;
 
 procedure Tfrm_PesqBase.edt_pesqKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
@@ -148,14 +150,6 @@ end;
 procedure Tfrm_PesqBase.btnPesquisarClick(Sender: TObject);
 begin
   //
-end;
-
-procedure Tfrm_PesqBase.cmbTipoBuscaClick(Sender: TObject);
-begin
-  lblBusca.Caption := Format('%s:', [cmbTipoBusca.Text]);
-
-  //Rotina Se fez Obrigatorio Devido tratamentos da "U_PesqChaveNFe"
-  if edt_pesq.Visible and edt_pesq.Enabled then edt_pesq.SetFocus;
 end;
 
 procedure Tfrm_PesqBase.EditFieldEnter(Sender: TObject);

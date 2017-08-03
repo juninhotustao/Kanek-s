@@ -15,11 +15,25 @@ type
     DTSVEN_DESCONTO: TFMTBCDField;
     DTSVEN_SITUACAO: TStringField;
     DTSVEN_OBSERVACAO: TStringField;
+    DTSItemITV_ID: TIntegerField;
+    DTSItemVEN_ID: TIntegerField;
+    DTSItemVEN_DATA: TSQLTimeStampField;
+    DTSItemPRO_ID: TIntegerField;
+    DTSItemITV_REFER: TStringField;
+    DTSItemITV_QTDE: TFMTBCDField;
+    DTSItemITV_DESCONTO: TFMTBCDField;
+    DTSItemITV_PRECOVENDA: TFMTBCDField;
+    DTSItemITV_VALORTOTAL: TFMTBCDField;
+    DTSItemITV_DATA: TSQLTimeStampField;
+    DTSItemITV_UN: TStringField;
+    DTSItemITV_DESCRICAO: TStringField;
     procedure DSPGetTableName(Sender: TObject; DataSet: TDataSet;
       var TableName: string);
     procedure CDSAfterPost(DataSet: TDataSet);
     procedure CDSItemBeforePost(DataSet: TDataSet);
     procedure CDSItemAfterPost(DataSet: TDataSet);
+    procedure DSPItemAfterUpdateRecord(Sender: TObject; SourceDS: TDataSet;
+      DeltaDS: TCustomClientDataSet; UpdateKind: TUpdateKind);
   private
     { Private declarations }
   public
@@ -60,6 +74,24 @@ begin
   inherited;
 
   TableName := 'VENDA';
+end;
+
+procedure TDmModelDav.DSPItemAfterUpdateRecord(Sender: TObject;
+  SourceDS: TDataSet; DeltaDS: TCustomClientDataSet; UpdateKind: TUpdateKind);
+var
+  ASql: string;
+  i: integer;
+begin
+  if UpdateKind <> ukInsert then Exit;
+
+  ASql := Format('SELECT IDENT_CURRENT(''%s'')', ['ITEM_VENDA']);
+
+  for i := 0 to DeltaDS.Fields.Count - 1 do
+    if (pfInKey in DeltaDS.Fields[i].ProviderFlags) and DeltaDS.Fields[i].IsNull then
+    begin
+      DeltaDS.Fields[i].NewValue := dmCon.OpenSQL(ASql, []);
+      Break;
+    end;
 end;
 
 end.

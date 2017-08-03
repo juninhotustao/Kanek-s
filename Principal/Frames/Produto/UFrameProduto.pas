@@ -10,10 +10,8 @@ uses
 type
   TframeProduto = class(TFrame)
     gpProduto: TGroupBox;
-    lblDescProduto: TLabel;
     lblRefProduto: TLabel;
     lblQuantidade: TLabel;
-    lblUnidade: TLabel;
     lblDescricaoValorUnit: TLabel;
     lblDesconto: TLabel;
     lblDescricaoValorTotal: TLabel;
@@ -23,11 +21,14 @@ type
     dbTotalItem: TDBEdit;
     dbVlrVenda: TDBEdit;
     dbReferencia: TDBEdit;
-    procedure edtReferenciaExit(Sender: TObject);
+    dbDescricaoProduto: TDBEdit;
+    dbUnidade: TDBEdit;
+    lblDescUnidade: TLabel;
     procedure dbQuantidadeExit(Sender: TObject);
     procedure dbVlrVendaExit(Sender: TObject);
     procedure dbDescontoExit(Sender: TObject);
     procedure dbReferenciaExit(Sender: TObject);
+    procedure btnPesqProdutoClick(Sender: TObject);
   private
     FProId: Integer;
   public
@@ -42,7 +43,19 @@ implementation
 
 {$R *.dfm}
 
-uses UDmCon;
+uses UDmCon, U_PesqProduto;
+
+procedure TframeProduto.btnPesqProdutoClick(Sender: TObject);
+var
+  ARef: String;
+begin
+  ARef := Tfrm_PesqProduto.GetRefResult;
+
+  if not(ARef = '') then
+    dbReferencia.Field.Value := ARef;
+
+  dbReferencia.Field.FocusControl;
+end;
 
 procedure TframeProduto.CalculaValorTotalItem;
 begin
@@ -95,13 +108,13 @@ begin
 
     FProId := FieldByName('PRO_ID').AsInteger;
 
-    dbReferencia.Text          := FieldByName('PRO_REFERENCIA').AsString;
-    lblDescProduto.Caption      := FieldByName('PRO_DESCRICAO').AsString;
-    dbQuantidade.Field.AsFloat  := 1;
-    lblUnidade.Caption          := 'UN';
-    dbVlrVenda.Field.AsFloat    := FieldByName('PRO_PRECO_VENDA').Value;
-    dbDesconto.Field.AsFloat    := 0;
-    dbTotalItem.Field.AsFloat   := 0;
+    dbReferencia.Field.Value       := FieldByName('PRO_REFERENCIA').AsString;
+    dbDescricaoProduto.Field.Value := FieldByName('PRO_DESCRICAO').AsString;
+    dbQuantidade.Field.AsFloat     := 1;
+    dbUnidade.Field.Value          := 'UN';
+    dbVlrVenda.Field.AsFloat       := FieldByName('PRO_PRECO_VENDA').Value;
+    dbDesconto.Field.AsFloat       := 0;
+    dbTotalItem.Field.AsFloat      := 0;
 
   finally
     Free;
@@ -111,48 +124,6 @@ end;
 procedure TframeProduto.dbVlrVendaExit(Sender: TObject);
 begin
   CalculaValorTotalItem;
-end;
-
-procedure TframeProduto.edtReferenciaExit(Sender: TObject);
-const
-  SQLPRODUTO =
-    ' SELECT '+
-    '	  PRO_ID,	PRO_DATA_CADASTRO, PRO_REFERENCIA, '+
-    '	  PRO_EAN, PRO_DESCRICAO, PRO_ESTOQUE, PRO_PRECO_CUSTO, '+
-    '	  PRO_PRECO_CUSTO_REAL, PRO_PRECO_MEDIO_COMPRA, '+
-    '	  PRO_PRECO_VENDA '+
-    ' FROM '+
-    '	  PRODUTOS '+
-    'WHERE '+
-    '  PRO_EAN LIKE :EAN OR PRO_REFERENCIA LIKE :REF';
-begin
-  if Trim(dbReferencia.Text) = '' then
-    Exit;
-
-  with TClientDataSet.Create(nil) do
-  try
-    Data := dmCon.GetData(SQLPRODUTO, [dbReferencia.Text,  dbReferencia.Text]);
-
-    if IsEmpty then
-    begin
-      MessageBox(Handle, 'Não foi encontrado produto na pesquisa.', 'ATENÇÃO!', MB_OK);
-      Abort;
-    end;
-
-    FProId := FieldByName('PRO_ID').AsInteger;
-
-    dbReferencia.Text          := FieldByName('PRO_REFERENCIA').AsString;
-    lblDescProduto.Caption      := FieldByName('PRO_DESCRICAO').AsString;
-    dbQuantidade.Field.AsFloat  := 1;
-    lblUnidade.Caption          := 'UN';
-    dbVlrVenda.Field.AsFloat    := FieldByName('PRO_PRECO_VENDA').Value;
-    dbDesconto.Field.AsFloat    := 0;
-    dbTotalItem.Field.AsFloat   := 0;
-
-  finally
-    Free;
-  end;
-
 end;
 
 end.

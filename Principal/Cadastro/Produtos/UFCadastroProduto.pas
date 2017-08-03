@@ -31,7 +31,6 @@ type
     data_lancto: TwwDBDateTimePicker;
     procedure btnConfirmaClick(Sender: TObject);
     procedure edtReferenciaExit(Sender: TObject);
-    procedure spdBuscaProdutoClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
     function ValidaCampos: Boolean;
@@ -46,7 +45,7 @@ implementation
 
 {$R *.dfm}
 
-uses U_PesqProduto, UControllerProduto;
+uses UControllerProduto;
 
 procedure TFCadastroProduto.btnConfirmaClick(Sender: TObject);
 var
@@ -98,18 +97,6 @@ begin
     edtReferencia.Enabled := HabilitaReferencia;
     ReferenciaAutomatica;
   end;
-end;
-
-procedure TFCadastroProduto.spdBuscaProdutoClick(Sender: TObject);
-var
-  ARef: String;
-begin
-  ARef := Tfrm_PesqProduto.GetRefResult;
-
-  if not(ARef = '') then
-    DS.DataSet.FieldByName('PRO_ID').AsString  := ARef;
-
-  edtReferencia.SetFocus;
 end;
 
 function TFCadastroProduto.ValidaCampos: Boolean;

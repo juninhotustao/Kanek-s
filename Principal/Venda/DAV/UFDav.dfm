@@ -9,7 +9,8 @@ inherited FDav: TFDav
   inherited pnlGrid: TPanel
     Width = 688
     Height = 552
-    ExplicitHeight = 525
+    ExplicitWidth = 688
+    ExplicitHeight = 552
     object lblMenuItem: TLabel [0]
       Left = 273
       Top = 206
@@ -27,15 +28,17 @@ inherited FDav: TFDav
     end
     inherited lblDescricaoTotalVenda: TLabel
       Left = 448
-      Top = 345
+      Top = 341
       ExplicitLeft = 448
-      ExplicitTop = 345
+      ExplicitTop = 341
     end
     inherited lblTotalVenda: TLabel
       Left = 570
-      Top = 345
+      Top = 341
+      Width = 109
       ExplicitLeft = 570
-      ExplicitTop = 345
+      ExplicitTop = 341
+      ExplicitWidth = 109
     end
     inherited Grid: TDBGrid
       Top = 368
@@ -44,7 +47,7 @@ inherited FDav: TFDav
       DataSource = DsItem
       Font.Style = [fsBold]
       ParentFont = False
-      TabOrder = 4
+      TabOrder = 2
       Columns = <
         item
           Expanded = False
@@ -71,9 +74,9 @@ inherited FDav: TFDav
           Visible = True
         end
         item
-          Alignment = taCenter
           Expanded = False
           FieldName = 'ITV_UN'
+          Title.Alignment = taCenter
           Title.Caption = 'UN'
           Title.Font.Charset = DEFAULT_CHARSET
           Title.Font.Color = clWindowText
@@ -134,11 +137,13 @@ inherited FDav: TFDav
     end
     inherited pnlConsulta: TPanel
       Width = 688
-      TabOrder = 3
+      TabOrder = 8
+      ExplicitWidth = 688
     end
     inherited pnlRodape: TPanel
       Width = 688
       TabOrder = 0
+      ExplicitWidth = 688
       inherited btnAlterar: TButton
         OnClick = btnAlterarClick
       end
@@ -163,11 +168,11 @@ inherited FDav: TFDav
         ExplicitWidth = 47
       end
       inherited lblNomeCliente: TLabel
-        Left = 139
-        Width = 465
+        Left = 168
+        Width = 483
         Caption = ''
-        ExplicitLeft = 139
-        ExplicitWidth = 465
+        ExplicitLeft = 168
+        ExplicitWidth = 483
       end
       inherited lblData: TLabel
         Left = 196
@@ -228,6 +233,10 @@ inherited FDav: TFDav
         ExplicitWidth = 261
         ExplicitHeight = 74
       end
+      inherited btnPesqCliente: TBitBtn
+        Left = 137
+        ExplicitLeft = 137
+      end
     end
     inline frameProdutoDav: TframeProduto
       Left = 20
@@ -235,7 +244,7 @@ inherited FDav: TFDav
       Width = 665
       Height = 117
       Enabled = False
-      TabOrder = 2
+      TabOrder = 7
       ExplicitLeft = 20
       ExplicitTop = 222
       ExplicitHeight = 117
@@ -244,12 +253,6 @@ inherited FDav: TFDav
         Top = 2
         ExplicitLeft = 0
         ExplicitTop = 2
-        inherited lblDescProduto: TLabel
-          Left = 253
-          Width = 386
-          ExplicitLeft = 253
-          ExplicitWidth = 386
-        end
         inherited lblRefProduto: TLabel
           Left = 11
           Top = 18
@@ -269,6 +272,14 @@ inherited FDav: TFDav
         inherited lblDescricaoValorTotal: TLabel
           Left = 510
           ExplicitLeft = 510
+        end
+        inherited lblDescUnidade: TLabel
+          Left = 127
+          ExplicitLeft = 127
+        end
+        inherited btnPesqProduto: TBitBtn
+          Top = 15
+          ExplicitTop = 15
         end
         inherited dbDesconto: TDBEdit
           Left = 355
@@ -305,7 +316,20 @@ inherited FDav: TFDav
           Top = 16
           DataField = 'ITV_REFER'
           DataSource = DsItem
+          OnExit = frameProdutoDavdbReferenciaExit
           ExplicitTop = 16
+        end
+        inherited dbDescricaoProduto: TDBEdit
+          Top = 16
+          DataField = 'ITV_DESCRICAO'
+          DataSource = DsItem
+          ExplicitTop = 16
+        end
+        inherited dbUnidade: TDBEdit
+          Left = 127
+          DataField = 'ITV_UN'
+          DataSource = DsItem
+          ExplicitLeft = 127
         end
       end
     end
@@ -317,7 +341,7 @@ inherited FDav: TFDav
       ImageAlignment = iaCenter
       ImageIndex = 75
       Images = DmImagens.Img
-      TabOrder = 5
+      TabOrder = 3
       OnClick = btnNovoItemClick
     end
     object btnAlterarItem: TButton
@@ -328,7 +352,7 @@ inherited FDav: TFDav
       ImageAlignment = iaCenter
       ImageIndex = 91
       Images = DmImagens.Img
-      TabOrder = 6
+      TabOrder = 4
       OnClick = btnAlterarItemClick
     end
     object btnExcluirItem: TButton
@@ -339,7 +363,7 @@ inherited FDav: TFDav
       ImageAlignment = iaCenter
       ImageIndex = 83
       Images = DmImagens.Img
-      TabOrder = 7
+      TabOrder = 5
       OnClick = btnExcluirItemClick
     end
     object btnCancelarItem: TButton
@@ -350,7 +374,7 @@ inherited FDav: TFDav
       ImageAlignment = iaCenter
       ImageIndex = 17
       Images = DmImagens.Img
-      TabOrder = 8
+      TabOrder = 6
       OnClick = btnCancelarItemClick
     end
   end

@@ -4,8 +4,8 @@ object frm_PesqBase: Tfrm_PesqBase
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'frm_PesqBase'
-  ClientHeight = 415
-  ClientWidth = 687
+  ClientHeight = 406
+  ClientWidth = 593
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -22,20 +22,22 @@ object frm_PesqBase: Tfrm_PesqBase
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
-  object Panel4: TPanel
+  object pnlPrincipal: TPanel
     Left = 0
     Top = 0
-    Width = 687
-    Height = 415
+    Width = 593
+    Height = 406
     Align = alClient
     BevelOuter = bvNone
     Color = cl3DLight
     TabOrder = 0
+    ExplicitWidth = 687
+    ExplicitHeight = 415
     object Grid: TDBGrid
       Left = 0
       Top = 0
-      Width = 687
-      Height = 343
+      Width = 593
+      Height = 350
       Align = alClient
       Color = 16056319
       DataSource = DS
@@ -57,36 +59,51 @@ object frm_PesqBase: Tfrm_PesqBase
       OnDblClick = GridDblClick
       OnKeyPress = GridKeyPress
     end
-    object Panel2: TPanel
+    object pnlBusca: TPanel
       Left = 0
-      Top = 343
-      Width = 687
-      Height = 72
+      Top = 350
+      Width = 593
+      Height = 56
       Align = alBottom
       Color = cl3DLight
       TabOrder = 1
+      ExplicitWidth = 687
       DesignSize = (
-        687
-        72)
-      object lblBusca: TLabel
-        Left = 197
-        Top = 42
-        Width = 31
-        Height = 13
+        593
+        56)
+      object lblDescricaoBusca: TLabel
+        Left = 117
+        Top = 6
+        Width = 36
+        Height = 14
         Alignment = taRightJustify
         Caption = 'Nome:'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
-        Font.Height = -11
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object lblTipoBusca: TLabel
+        Left = 3
+        Top = 6
+        Width = 81
+        Height = 14
+        Alignment = taRightJustify
+        Caption = 'Tipo de Busca:'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
       end
       object edt_pesq: TEdit
-        Left = 234
-        Top = 41
+        Left = 117
+        Top = 26
         Width = 376
-        Height = 17
+        Height = 21
         BevelInner = bvNone
         BevelKind = bkFlat
         BevelOuter = bvRaised
@@ -103,22 +120,22 @@ object frm_PesqBase: Tfrm_PesqBase
         OnKeyPress = edt_pesqKeyPress
       end
       object cmbTipoBusca: TComboBox
-        Left = 285
-        Top = 14
-        Width = 192
+        Left = 3
+        Top = 26
+        Width = 104
         Height = 21
+        Style = csDropDownList
         TabOrder = 0
-        OnClick = cmbTipoBuscaClick
       end
       object btnPesquisar: TButton
-        Left = 8
-        Top = 14
-        Width = 100
-        Height = 48
+        Left = 499
+        Top = 16
+        Width = 84
+        Height = 31
         Anchors = [akLeft, akBottom]
         Caption = '&Pesquisar'
-        HotImageIndex = 11
-        ImageIndex = 11
+        ImageIndex = 42
+        Images = DmImagens.Img
         TabOrder = 2
         OnClick = btnPesquisarClick
       end

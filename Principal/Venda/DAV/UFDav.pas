@@ -28,16 +28,16 @@ type
     procedure dbObservacaoExit(Sender: TObject);
     procedure btnExcluirClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
-    procedure frameProdutoDavedtReferenciaExit(Sender: TObject);
     procedure frameProdutoDavdbDescontoExit(Sender: TObject);
     procedure btnNovoItemClick(Sender: TObject);
     procedure btnAlterarItemClick(Sender: TObject);
     procedure btnExcluirItemClick(Sender: TObject);
     procedure btnCancelarItemClick(Sender: TObject);
+    procedure frameProdutoDavdbReferenciaExit(Sender: TObject);
   private
     { Private declarations }
   public
-    { Public declarations }
+    procedure SalvarItem;
   end;
 
 var
@@ -118,8 +118,8 @@ begin
   TControllerDav(FController).InsertItem;
 
   frameProdutoDav.Enabled := True;
-  frameProdutoDav.dbReferencia.Text     := '';
-  frameProdutoDav.lblDescProduto.Caption := '';
+  frameProdutoDav.dbReferencia.Text        := '';
+  frameProdutoDav.dbDescricaoProduto.Text  := '';
   frameProdutoDav.dbReferencia.SetFocus;
 end;
 
@@ -131,7 +131,7 @@ begin
     dbNumVenda.Text := IntToStr(NumeroVenId);
 
   gpCliente.Enabled := False;
-  NovoClick(Sender);
+  Grid.SetFocus;
 end;
 
 procedure TFDav.dbObservacaoExit(Sender: TObject);
@@ -158,30 +158,36 @@ begin
   if (Trim(frameProdutoDav.dbReferencia.Text) = '') and (DsItem.State = dsInsert) then
     Exit;
 
-  TControllerDav(FController).PostItem;
-
-  frameProdutoDav.dbReferencia.Clear;
-  frameProdutoDav.dbQuantidade.Text  := '0,000';
-  frameProdutoDav.dbVlrVenda.Text    := '0,00';
-  frameProdutoDav.dbDesconto.Text    := '0,00';
-  frameProdutoDav.dbTotalItem.Text   := '0,00';
-
-  frameProdutoDav.Enabled := False;
+  SalvarItem;
 end;
 
-procedure TFDav.frameProdutoDavedtReferenciaExit(Sender: TObject);
+procedure TFDav.frameProdutoDavdbReferenciaExit(Sender: TObject);
 begin
   inherited;
-  frameProdutoDav.edtReferenciaExit(Sender);
+  frameProdutoDav.dbReferenciaExit(Sender);
 
   DmModelDav.CDSItemPRO_ID.AsInteger       := frameProdutoDav.ProId;
-  DmModelDav.CDSItemITV_REFER.AsString     := frameProdutoDav.dbReferencia.Text;
-  DmModelDav.CDSItemITV_DESCRICAO.AsString := frameProdutoDav.lblDescProduto.Caption;
 end;
 
 procedure TFDav.NovoClick(Sender: TObject);
 begin
   btnNovoItemClick(Sender);
+end;
+
+procedure TFDav.SalvarItem;
+begin
+  TControllerDav(FController).PostItem;
+
+  frameProdutoDav.dbReferencia.Clear;
+  frameProdutoDav.dbDescricaoProduto.Clear;
+  frameProdutoDav.dbUnidade.Clear;
+  frameProdutoDav.dbQuantidade.Clear;
+  frameProdutoDav.dbVlrVenda.Clear;
+  frameProdutoDav.dbDesconto.Clear;
+  frameProdutoDav.dbTotalItem.Clear;
+
+  frameProdutoDav.Enabled := False;
+  Grid.SetFocus;
 end;
 
 end.

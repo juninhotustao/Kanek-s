@@ -37,7 +37,10 @@ uses
   UFDav in 'Venda\DAV\UFDav.pas' {FDav},
   UControllerDav in 'Venda\DAV\UControllerDav.pas',
   UDmModelDav in 'Venda\DAV\UDmModelDav.pas' {DmModelDav: TDataModule},
-  UFrameProduto in 'Frames\Produto\UFrameProduto.pas' {frameProduto: TFrame};
+  UFrameProduto in 'Frames\Produto\UFrameProduto.pas' {frameProduto: TFrame},
+  UDmModelPesqCliente in 'Pesquisa\Cliente\UDmModelPesqCliente.pas' {DmModelPesqCliente: TDataModule},
+  U_PesqCliente in 'Pesquisa\Cliente\U_PesqCliente.pas' {frm_PesqCliente},
+  UControllerPesqCliente in 'Pesquisa\Cliente\UControllerPesqCliente.pas';
 
 {$R *.res}
 

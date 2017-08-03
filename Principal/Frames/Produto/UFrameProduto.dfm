@@ -5,27 +5,11 @@ object frameProduto: TframeProduto
   Height = 119
   TabOrder = 0
   object gpProduto: TGroupBox
-    Left = 2
-    Top = 1
+    Left = 3
+    Top = 3
     Width = 659
     Height = 113
     TabOrder = 0
-    object lblDescProduto: TLabel
-      Left = 251
-      Top = 17
-      Width = 393
-      Height = 18
-      AutoSize = False
-      Caption = '...'
-      Color = clBtnFace
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clBlack
-      Font.Height = -13
-      Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
-      ParentColor = False
-      ParentFont = False
-    end
     object lblRefProduto: TLabel
       Left = 8
       Top = 17
@@ -54,22 +38,8 @@ object frameProduto: TframeProduto
       Font.Style = []
       ParentFont = False
     end
-    object lblUnidade: TLabel
-      Left = 126
-      Top = 77
-      Width = 46
-      Height = 18
-      AutoSize = False
-      Caption = 'UN'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -13
-      Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
-      ParentFont = False
-    end
     object lblDescricaoValorUnit: TLabel
-      Left = 178
+      Left = 218
       Top = 54
       Width = 102
       Height = 18
@@ -83,7 +53,7 @@ object frameProduto: TframeProduto
       ParentFont = False
     end
     object lblDesconto: TLabel
-      Left = 284
+      Left = 324
       Top = 54
       Width = 102
       Height = 18
@@ -97,12 +67,26 @@ object frameProduto: TframeProduto
       ParentFont = False
     end
     object lblDescricaoValorTotal: TLabel
-      Left = 433
+      Left = 473
       Top = 54
       Width = 116
       Height = 18
       AutoSize = False
       Caption = 'Valor Total Item'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object lblDescUnidade: TLabel
+      Left = 141
+      Top = 54
+      Width = 52
+      Height = 18
+      AutoSize = False
+      Caption = 'Unidade'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -116,14 +100,15 @@ object frameProduto: TframeProduto
       Width = 24
       Height = 21
       Caption = '...'
-      TabOrder = 4
+      TabOrder = 6
+      OnClick = btnPesqProdutoClick
     end
     object dbDesconto: TDBEdit
-      Left = 284
+      Left = 324
       Top = 76
       Width = 112
       Height = 21
-      TabOrder = 2
+      TabOrder = 4
       OnExit = dbDescontoExit
     end
     object dbQuantidade: TDBEdit
@@ -131,23 +116,23 @@ object frameProduto: TframeProduto
       Top = 76
       Width = 112
       Height = 21
-      TabOrder = 0
+      TabOrder = 2
       OnExit = dbQuantidadeExit
     end
     object dbTotalItem: TDBEdit
-      Left = 433
+      Left = 473
       Top = 76
       Width = 112
       Height = 21
       Enabled = False
-      TabOrder = 3
+      TabOrder = 5
     end
     object dbVlrVenda: TDBEdit
-      Left = 178
+      Left = 218
       Top = 76
       Width = 89
       Height = 21
-      TabOrder = 1
+      TabOrder = 3
       OnExit = dbVlrVendaExit
     end
     object dbReferencia: TDBEdit
@@ -155,8 +140,24 @@ object frameProduto: TframeProduto
       Top = 14
       Width = 112
       Height = 21
-      TabOrder = 5
+      TabOrder = 0
       OnExit = dbReferenciaExit
+    end
+    object dbDescricaoProduto: TDBEdit
+      Left = 240
+      Top = 14
+      Width = 400
+      Height = 21
+      Enabled = False
+      TabOrder = 1
+    end
+    object dbUnidade: TDBEdit
+      Left = 141
+      Top = 76
+      Width = 57
+      Height = 21
+      Enabled = False
+      TabOrder = 7
     end
   end
 end
