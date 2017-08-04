@@ -40,7 +40,11 @@ uses
   UFrameProduto in 'Frames\Produto\UFrameProduto.pas' {frameProduto: TFrame},
   UDmModelPesqCliente in 'Pesquisa\Cliente\UDmModelPesqCliente.pas' {DmModelPesqCliente: TDataModule},
   U_PesqCliente in 'Pesquisa\Cliente\U_PesqCliente.pas' {frm_PesqCliente},
-  UControllerPesqCliente in 'Pesquisa\Cliente\UControllerPesqCliente.pas';
+  UControllerPesqCliente in 'Pesquisa\Cliente\UControllerPesqCliente.pas',
+  UDmModelUnidade in 'Cadastro\Unidade\UDmModelUnidade.pas' {DmModelUnidade: TDataModule},
+  UFCadastroUnidade in 'Cadastro\Unidade\UFCadastroUnidade.pas' {FCadastroUnidade},
+  UFConsultaUnidade in 'Cadastro\Unidade\UFConsultaUnidade.pas' {FConsultaUnidade},
+  UControllerUnidade in 'Cadastro\Unidade\UControllerUnidade.pas';
 
 {$R *.res}
 

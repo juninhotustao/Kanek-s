@@ -25,8 +25,6 @@ object UFrmPrincipal: TUFrmPrincipal
     Height = 370
     Align = alClient
     TabOrder = 0
-    ExplicitWidth = 721
-    ExplicitHeight = 443
   end
   object MainMenu1: TMainMenu
     Left = 112
@@ -51,6 +49,10 @@ object UFrmPrincipal: TUFrmPrincipal
       object Fornecedores: TMenuItem
         Caption = 'Fornecedores'
         OnClick = FornecedoresClick
+      end
+      object Unidades: TMenuItem
+        Caption = 'Unidade'
+        OnClick = UnidadesClick
       end
     end
     object Movimentaes1: TMenuItem

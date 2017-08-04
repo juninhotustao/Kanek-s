@@ -1,72 +1,56 @@
-inherited FConsultaProduto: TFConsultaProduto
-  Caption = 'Consulta de Produto'
-  ClientHeight = 457
-  ClientWidth = 728
+inherited FConsultaUnidade: TFConsultaUnidade
+  Caption = 'Consulta Unidades'
+  ClientHeight = 376
+  ClientWidth = 563
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   OnKeyDown = FormKeyDown
-  ExplicitWidth = 734
-  ExplicitHeight = 485
+  ExplicitWidth = 569
+  ExplicitHeight = 404
   PixelsPerInch = 96
   TextHeight = 13
   inherited pnlGrid: TPanel
-    Width = 728
-    Height = 457
-    ExplicitWidth = 728
-    ExplicitHeight = 457
+    Width = 563
+    Height = 376
     inherited Grid: TDBGrid
-      Width = 728
-      Height = 313
+      Width = 563
+      Height = 232
       DataSource = DS
       Columns = <
         item
           Expanded = False
-          FieldName = 'PRO_REFERENCIA'
-          Title.Caption = 'Refer'#234'ncia'
+          FieldName = 'UN_ID'
+          Title.Caption = 'ID'
+          Width = 49
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'UN_CODIGO'
+          Title.Caption = 'C'#243'digo'
           Width = 79
           Visible = True
         end
         item
           Expanded = False
-          FieldName = 'PRO_DESCRICAO'
+          FieldName = 'UN_DESCRICAO'
           Title.Caption = 'Descri'#231#227'o'
-          Width = 389
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'PRO_ESTOQUE'
-          Title.Caption = 'Estoque'
-          Width = 67
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'PRO_PRECO_CUSTO'
-          Title.Caption = 'Custo'
-          Width = 62
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'PRO_PRECO_VENDA'
-          Title.Caption = 'Pr. Venda'
-          Width = 71
+          Width = 368
           Visible = True
         end>
     end
     inherited pnlConsulta: TPanel
-      Width = 728
-      ExplicitWidth = 728
+      Width = 563
       object groupPesquisa: TGroupBox
         Left = 0
         Top = 0
-        Width = 728
+        Width = 563
         Height = 97
         Align = alClient
         TabOrder = 0
+        ExplicitWidth = 728
         object lblPesquisar: TLabel
-          Left = 246
+          Left = 154
           Top = 43
           Width = 53
           Height = 13
@@ -80,7 +64,7 @@ inherited FConsultaProduto: TFConsultaProduto
           Caption = 'Tipo de Pesquisa : '
         end
         object btnPesquisar: TButton
-          Left = 622
+          Left = 454
           Top = 22
           Width = 100
           Height = 48
@@ -91,57 +75,44 @@ inherited FConsultaProduto: TFConsultaProduto
           OnClick = btnPesquisarClick
         end
         object edtPesquisa: TEdit
-          Left = 301
+          Left = 209
           Top = 40
-          Width = 301
+          Width = 236
           Height = 21
           CharCase = ecUpperCase
           TabOrder = 0
           OnKeyPress = edtPesquisaKeyPress
         end
         object Cmb_TipoPesquisa: TComboBox
-          Left = 8
+          Left = 7
           Top = 40
-          Width = 230
+          Width = 142
           Height = 21
           Style = csDropDownList
-          ItemIndex = 1
+          ItemIndex = 0
           TabOrder = 2
-          Text = 'Descri'#231#227'o'
+          Text = 'C'#243'digo'
           Items.Strings = (
-            'EAN'
-            'Descri'#231#227'o'
-            'Refer'#234'ncia')
+            'C'#243'digo'
+            'Descri'#231#227'o')
         end
       end
     end
     inherited pnlRodape: TPanel
-      Top = 410
-      Width = 728
-      ExplicitTop = 410
-      ExplicitWidth = 728
+      Top = 329
+      Width = 563
       inherited BtnNovo: TButton
-        Left = 1
         OnClick = BtnNovoClick
-        ExplicitLeft = 1
-      end
-      inherited btnSair: TButton
-        Left = 236
-        ExplicitLeft = 236
       end
       inherited btnAlterar: TButton
-        Left = 76
         OnClick = btnAlterarClick
-        ExplicitLeft = 76
       end
       inherited btnExcluir: TButton
-        Left = 156
         OnClick = btnExcluirClick
-        ExplicitLeft = 156
       end
     end
   end
   inherited DS: TDataSource
-    DataSet = DmModelProduto.CDS
+    DataSet = DmModelUnidade.CDS
   end
 end

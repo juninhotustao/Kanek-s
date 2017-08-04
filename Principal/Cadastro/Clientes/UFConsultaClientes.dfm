@@ -104,10 +104,10 @@ inherited FConsultaClientes: TFConsultaClientes
       Width = 670
       ExplicitWidth = 670
       inherited BtnNovo: TButton
-        Left = 7
+        Left = 4
         Top = 6
         OnClick = BtnNovoClick
-        ExplicitLeft = 7
+        ExplicitLeft = 4
         ExplicitTop = 6
       end
       inherited btnSair: TButton
@@ -117,7 +117,10 @@ inherited FConsultaClientes: TFConsultaClientes
         ExplicitTop = 6
       end
       inherited btnAlterar: TButton
+        Left = 81
         Top = 6
+        OnClick = btnAlterarClick
+        ExplicitLeft = 81
         ExplicitTop = 6
       end
       inherited btnExcluir: TButton

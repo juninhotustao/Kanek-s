@@ -1,39 +1,39 @@
 inherited FCadastroFornecedor: TFCadastroFornecedor
   Caption = 'Cadastro de Fornecedores'
-  ClientHeight = 326
+  ClientHeight = 353
   ClientWidth = 530
   ExplicitWidth = 536
-  ExplicitHeight = 355
+  ExplicitHeight = 381
   PixelsPerInch = 96
   TextHeight = 13
   inherited pnlRodape: TPanel
-    Top = 287
+    Top = 299
     Width = 530
-    Height = 39
+    Height = 54
     Align = alBottom
-    ExplicitTop = 287
+    ExplicitTop = 299
     ExplicitWidth = 530
-    ExplicitHeight = 39
+    ExplicitHeight = 54
     inherited btnConfirma: TButton
-      Left = 166
-      Top = 4
-      ExplicitLeft = 166
-      ExplicitTop = 4
+      Left = 195
+      Top = 7
+      ExplicitLeft = 195
+      ExplicitTop = 7
     end
     inherited btnCancela: TButton
-      Left = 327
-      Top = 4
-      ExplicitLeft = 327
-      ExplicitTop = 4
+      Left = 275
+      Top = 7
+      ExplicitLeft = 275
+      ExplicitTop = 7
     end
   end
   inherited pnlPrincipal: TPanel
     Top = 0
     Width = 530
-    Height = 287
+    Height = 299
     ExplicitTop = 0
     ExplicitWidth = 530
-    ExplicitHeight = 287
+    ExplicitHeight = 299
     object gpDados: TGroupBox
       Left = 1
       Top = 1
@@ -90,14 +90,14 @@ inherited FCadastroFornecedor: TFCadastroFornecedor
       object lblTelefone1: TLabel
         Left = 13
         Top = 92
-        Width = 74
+        Width = 75
         Height = 13
         Caption = 'Telefone (1):'
       end
       object lblTelefone2: TLabel
         Left = 143
         Top = 92
-        Width = 74
+        Width = 75
         Height = 13
         Caption = 'Telefone (2):'
       end
@@ -312,7 +312,7 @@ inherited FCadastroFornecedor: TFCadastroFornecedor
       object Label107: TLabel
         Left = 13
         Top = 6
-        Width = 50
+        Width = 51
         Height = 13
         Caption = 'Rua/Av.:'
       end

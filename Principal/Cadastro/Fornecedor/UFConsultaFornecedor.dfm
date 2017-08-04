@@ -102,6 +102,9 @@ inherited FConsultaFornecedor: TFConsultaFornecedor
       inherited BtnNovo: TButton
         OnClick = BtnNovoClick
       end
+      inherited btnAlterar: TButton
+        OnClick = btnAlterarClick
+      end
       inherited btnExcluir: TButton
         OnClick = btnExcluirClick
       end

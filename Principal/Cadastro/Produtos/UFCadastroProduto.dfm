@@ -4,7 +4,7 @@ inherited FCadastroProduto: TFCadastroProduto
   ClientWidth = 466
   OnShow = FormShow
   ExplicitWidth = 472
-  ExplicitHeight = 420
+  ExplicitHeight = 419
   PixelsPerInch = 96
   TextHeight = 13
   inherited pnlRodape: TPanel
@@ -19,16 +19,16 @@ inherited FCadastroProduto: TFCadastroProduto
       466
       49)
     inherited btnConfirma: TButton
-      Left = 143
-      Top = 13
-      ExplicitLeft = 143
-      ExplicitTop = 13
+      Left = 160
+      Top = 4
+      ExplicitLeft = 160
+      ExplicitTop = 4
     end
     inherited btnCancela: TButton
-      Left = 297
-      Top = 13
-      ExplicitLeft = 297
-      ExplicitTop = 13
+      Left = 244
+      Top = 4
+      ExplicitLeft = 244
+      ExplicitTop = 4
     end
   end
   inherited pnlPrincipal: TPanel
@@ -37,7 +37,7 @@ inherited FCadastroProduto: TFCadastroProduto
     Height = 342
     ExplicitTop = 0
     ExplicitWidth = 466
-    ExplicitHeight = 358
+    ExplicitHeight = 342
     object Label3: TLabel
       Left = 16
       Top = 105
@@ -167,7 +167,6 @@ inherited FCadastroProduto: TFCadastroProduto
       TabOrder = 5
       object tabGeral: TTabSheet
         Caption = 'Geral'
-        ExplicitHeight = 166
         object lblCusto: TLabel
           Left = 23
           Top = 22
@@ -185,14 +184,14 @@ inherited FCadastroProduto: TFCadastroProduto
         object lblVenda: TLabel
           Left = 224
           Top = 22
-          Width = 58
+          Width = 61
           Height = 13
           Caption = 'Pr. Venda:'
         end
         object lblMedio: TLabel
           Left = 338
           Top = 22
-          Width = 56
+          Width = 58
           Height = 13
           Caption = 'Pr. M'#233'dio:'
         end
@@ -288,7 +287,7 @@ inherited FCadastroProduto: TFCadastroProduto
   end
   inherited DS: TDataSource
     DataSet = DmModelProduto.CDS
-    Left = 232
-    Top = 312
+    Left = 144
+    Top = 224
   end
 end

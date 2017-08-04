@@ -18,6 +18,7 @@ type
     Produtos: TMenuItem;
     Fornecedores: TMenuItem;
     Venda: TMenuItem;
+    Unidades: TMenuItem;
     procedure ClientesClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure ProdutosClick(Sender: TObject);
@@ -25,6 +26,7 @@ type
     procedure Sair1Click(Sender: TObject);
     procedure VendaClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure UnidadesClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -38,7 +40,7 @@ implementation
 
 uses
   UFConsultaClientes, UDmImagens, UFConsultaProduto, UFConsultaFornecedor, ULogin,
-  UFunc, UFDav;
+  UFunc, UFDav, UFConsultaUnidade;
 {$R *.dfm}
 
 procedure TUFrmPrincipal.ClientesClick(Sender: TObject);
@@ -80,6 +82,11 @@ end;
 procedure TUFrmPrincipal.Sair1Click(Sender: TObject);
 begin
   Application.Terminate;
+end;
+
+procedure TUFrmPrincipal.UnidadesClick(Sender: TObject);
+begin
+  TFunc.CriaForm(TFConsultaUnidade);
 end;
 
 procedure TUFrmPrincipal.VendaClick(Sender: TObject);

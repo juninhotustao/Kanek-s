@@ -25,6 +25,7 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure btnSairClick(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   protected
     FController: TController;
   public
@@ -58,6 +59,15 @@ end;
 procedure TFConsulta.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   Action := caFree;
+end;
+
+procedure TFConsulta.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  case Key of
+    VK_RETURN: Perform(WM_NEXTDLGCTL,0,0);
+    VK_ESCAPE: Close;
+  end;
 end;
 
 procedure TFConsulta.FormKeyPress(Sender: TObject; var Key: Char);
