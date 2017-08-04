@@ -1,135 +1,81 @@
 inherited FCadastroProduto: TFCadastroProduto
   Caption = 'Cadastro de Produto'
-  ClientHeight = 245
+  ClientHeight = 391
   ClientWidth = 466
   OnShow = FormShow
   ExplicitWidth = 472
-  ExplicitHeight = 273
+  ExplicitHeight = 420
   PixelsPerInch = 96
   TextHeight = 13
   inherited pnlRodape: TPanel
-    Top = 212
+    Top = 342
     Width = 466
-    Height = 33
+    Height = 49
     Align = alBottom
-    ExplicitTop = 212
+    ExplicitTop = 342
     ExplicitWidth = 466
-    ExplicitHeight = 33
+    ExplicitHeight = 49
     DesignSize = (
       466
-      33)
+      49)
     inherited btnConfirma: TButton
-      Left = 7
-      Top = 1
-      ExplicitLeft = 7
-      ExplicitTop = 1
+      Left = 143
+      Top = 13
+      ExplicitLeft = 143
+      ExplicitTop = 13
     end
     inherited btnCancela: TButton
-      Left = 104
-      Top = 1
-      ExplicitLeft = 104
-      ExplicitTop = 1
+      Left = 297
+      Top = 13
+      ExplicitLeft = 297
+      ExplicitTop = 13
     end
   end
   inherited pnlPrincipal: TPanel
     Top = 0
     Width = 466
-    Height = 212
+    Height = 342
     ExplicitTop = 0
     ExplicitWidth = 466
-    ExplicitHeight = 212
+    ExplicitHeight = 358
     object Label3: TLabel
-      Left = 10
-      Top = 81
+      Left = 16
+      Top = 105
       Width = 65
       Height = 13
       Caption = 'Descri'#231#227'o: '
     end
     object lblReferencia: TLabel
-      Left = 7
-      Top = 48
+      Left = 13
+      Top = 66
       Width = 66
       Height = 13
       Caption = 'Refer'#234'ncia:'
     end
     object lblData: TLabel
-      Left = 36
-      Top = 16
+      Left = 42
+      Top = 27
       Width = 32
       Height = 13
       Caption = 'Data:'
     end
-    object lblCusto: TLabel
-      Left = 31
-      Top = 121
-      Width = 42
-      Height = 13
-      Caption = 'Custo: '
-    end
-    object lblMedio: TLabel
-      Left = 14
-      Top = 158
-      Width = 58
-      Height = 13
-      Caption = 'Pr. M'#233'dio:'
-    end
-    object lblVenda: TLabel
-      Left = 233
-      Top = 159
-      Width = 61
-      Height = 13
-      Caption = 'Pr. Venda:'
-    end
-    object lblCustoReal: TLabel
-      Left = 223
-      Top = 122
-      Width = 71
-      Height = 13
-      Caption = 'Custo Real: '
-    end
     object lblEstoque: TLabel
-      Left = 240
-      Top = 16
+      Left = 246
+      Top = 27
       Width = 54
       Height = 13
       Caption = 'Estoque: '
     end
     object lblEan: TLabel
-      Left = 266
-      Top = 48
+      Left = 272
+      Top = 66
       Width = 28
       Height = 13
       Caption = 'EAN:'
     end
-    object edtVenda: TDBEdit
-      Left = 298
-      Top = 155
-      Width = 82
-      Height = 19
-      BevelInner = bvNone
-      BevelOuter = bvRaised
-      BevelKind = bkFlat
-      BorderStyle = bsNone
-      DataField = 'PRO_PRECO_VENDA'
-      DataSource = DS
-      TabOrder = 7
-    end
-    object edtCustoReal: TDBEdit
-      Left = 298
-      Top = 118
-      Width = 82
-      Height = 19
-      BevelInner = bvNone
-      BevelOuter = bvRaised
-      BevelKind = bkFlat
-      BorderStyle = bsNone
-      DataField = 'PRO_PRECO_CUSTO_REAL'
-      DataSource = DS
-      TabOrder = 5
-    end
     object edtEstoque: TDBEdit
-      Left = 298
-      Top = 13
+      Left = 304
+      Top = 24
       Width = 92
       Height = 19
       BevelInner = bvNone
@@ -139,37 +85,11 @@ inherited FCadastroProduto: TFCadastroProduto
       DataField = 'PRO_ESTOQUE'
       DataSource = DS
       Enabled = False
-      TabOrder = 8
-    end
-    object edtCusto: TDBEdit
-      Left = 74
-      Top = 118
-      Width = 82
-      Height = 19
-      BevelInner = bvNone
-      BevelOuter = bvRaised
-      BevelKind = bkFlat
-      BorderStyle = bsNone
-      DataField = 'PRO_PRECO_CUSTO'
-      DataSource = DS
       TabOrder = 4
     end
-    object edtMedio: TDBEdit
-      Left = 74
-      Top = 155
-      Width = 82
-      Height = 19
-      BevelInner = bvNone
-      BevelOuter = bvRaised
-      BevelKind = bkFlat
-      BorderStyle = bsNone
-      DataField = 'PRO_PRECO_MEDIO_COMPRA'
-      DataSource = DS
-      TabOrder = 6
-    end
     object edtDescricao: TDBEdit
-      Left = 74
-      Top = 78
+      Left = 80
+      Top = 102
       Width = 371
       Height = 19
       BevelInner = bvNone
@@ -188,8 +108,8 @@ inherited FCadastroProduto: TFCadastroProduto
       TabOrder = 3
     end
     object edtReferencia: TDBEdit
-      Left = 74
-      Top = 45
+      Left = 80
+      Top = 63
       Width = 147
       Height = 19
       BevelInner = bvNone
@@ -208,8 +128,8 @@ inherited FCadastroProduto: TFCadastroProduto
       OnExit = edtReferenciaExit
     end
     object edtEan: TDBEdit
-      Left = 298
-      Top = 45
+      Left = 304
+      Top = 63
       Width = 147
       Height = 19
       BevelInner = bvNone
@@ -222,8 +142,8 @@ inherited FCadastroProduto: TFCadastroProduto
       OnExit = edtReferenciaExit
     end
     object data_lancto: TwwDBDateTimePicker
-      Left = 74
-      Top = 13
+      Left = 80
+      Top = 24
       Width = 107
       Height = 21
       CalendarAttributes.Font.Charset = DEFAULT_CHARSET
@@ -238,10 +158,137 @@ inherited FCadastroProduto: TFCadastroProduto
       TabOrder = 0
       DisplayFormat = 'dd/mm/yyyy'
     end
+    object pg_: TPageControl
+      Left = 13
+      Top = 137
+      Width = 438
+      Height = 193
+      ActivePage = tabGeral
+      TabOrder = 5
+      object tabGeral: TTabSheet
+        Caption = 'Geral'
+        ExplicitHeight = 166
+        object lblCusto: TLabel
+          Left = 23
+          Top = 22
+          Width = 42
+          Height = 13
+          Caption = 'Custo: '
+        end
+        object lblCustoReal: TLabel
+          Left = 123
+          Top = 22
+          Width = 71
+          Height = 13
+          Caption = 'Custo Real: '
+        end
+        object lblVenda: TLabel
+          Left = 224
+          Top = 22
+          Width = 58
+          Height = 13
+          Caption = 'Pr. Venda:'
+        end
+        object lblMedio: TLabel
+          Left = 338
+          Top = 22
+          Width = 56
+          Height = 13
+          Caption = 'Pr. M'#233'dio:'
+        end
+        object lblUnidade: TLabel
+          Left = 16
+          Top = 97
+          Width = 55
+          Height = 13
+          Caption = 'Unidade: '
+        end
+        object lblDepartamento: TLabel
+          Left = 185
+          Top = 97
+          Width = 91
+          Height = 13
+          Caption = 'Departamento: '
+        end
+        object edtCusto: TDBEdit
+          Left = 22
+          Top = 39
+          Width = 82
+          Height = 19
+          BevelInner = bvNone
+          BevelOuter = bvRaised
+          BevelKind = bkFlat
+          BorderStyle = bsNone
+          DataField = 'PRO_PRECO_CUSTO'
+          DataSource = DS
+          TabOrder = 0
+        end
+        object edtCustoReal: TDBEdit
+          Left = 123
+          Top = 39
+          Width = 82
+          Height = 19
+          BevelInner = bvNone
+          BevelOuter = bvRaised
+          BevelKind = bkFlat
+          BorderStyle = bsNone
+          DataField = 'PRO_PRECO_CUSTO_REAL'
+          DataSource = DS
+          TabOrder = 1
+        end
+        object edtVenda: TDBEdit
+          Left = 224
+          Top = 39
+          Width = 82
+          Height = 19
+          BevelInner = bvNone
+          BevelOuter = bvRaised
+          BevelKind = bkFlat
+          BorderStyle = bsNone
+          DataField = 'PRO_PRECO_VENDA'
+          DataSource = DS
+          TabOrder = 2
+        end
+        object edtMedio: TDBEdit
+          Left = 329
+          Top = 39
+          Width = 82
+          Height = 19
+          BevelInner = bvNone
+          BevelOuter = bvRaised
+          BevelKind = bkFlat
+          BorderStyle = bsNone
+          DataField = 'PRO_PRECO_MEDIO_COMPRA'
+          DataSource = DS
+          TabOrder = 3
+        end
+        object lkpUnidade: TDBLookupComboBox
+          Left = 16
+          Top = 116
+          Width = 145
+          Height = 21
+          DataField = 'PRO_UN_ID'
+          DataSource = DS
+          KeyField = 'UN_ID'
+          ListField = 'UN_CODIGO;UN_DESCRICAO'
+          ListSource = DmModelProduto.DSUnidade
+          TabOrder = 4
+        end
+        object lkpDepartamento: TDBLookupComboBox
+          Left = 185
+          Top = 116
+          Width = 239
+          Height = 21
+          DataField = 'PRO_UN_ID'
+          DataSource = DS
+          TabOrder = 5
+        end
+      end
+    end
   end
   inherited DS: TDataSource
     DataSet = DmModelProduto.CDS
-    Left = 408
-    Top = 112
+    Left = 232
+    Top = 312
   end
 end

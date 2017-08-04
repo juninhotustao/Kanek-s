@@ -1,28 +1,30 @@
 inherited DmModelProduto: TDmModelProduto
   OldCreateOrder = True
+  OnDestroy = DataModuleDestroy
   Height = 212
-  Width = 126
+  Width = 348
   inherited DTS: TSQLDataSet
     SchemaName = 'sa'
     CommandText = 
       'SELECT'#13#10'    PRO_ID, PRO_DATA_CADASTRO, PRO_REFERENCIA,'#13#10'    PRO_' +
       'EAN, PRO_DESCRICAO, PRO_ESTOQUE, PRO_PRECO_CUSTO,'#13#10'    PRO_PRECO' +
-      '_CUSTO_REAL, PRO_PRECO_MEDIO_COMPRA,'#13#10'    PRO_PRECO_VENDA'#13#10'FROM'#13 +
-      #10'    PRODUTOS'#13#10'WHERE'#13#10'    ISNULL(PRO_EAN,'#39#39') LIKE :EAN AND'#13#10'    ' +
-      'PRO_DESCRICAO LIKE :PRO_DESCRICAO AND PRO_REFERENCIA LIKE :REF'
+      '_CUSTO_REAL, PRO_PRECO_MEDIO_COMPRA,'#13#10'    PRO_PRECO_VENDA, PRO_U' +
+      'N_ID'#13#10'FROM'#13#10'    PRODUTOS'#13#10'WHERE'#13#10'    ISNULL(PRO_EAN,'#39#39') LIKE :EA' +
+      'N AND'#13#10'    PRO_DESCRICAO LIKE :PRO_DESCRICAO AND PRO_REFERENCIA ' +
+      'LIKE :REF'
     Params = <
       item
-        DataType = ftUnknown
+        DataType = ftString
         Name = 'EAN'
         ParamType = ptInput
       end
       item
-        DataType = ftUnknown
+        DataType = ftString
         Name = 'PRO_DESCRICAO'
         ParamType = ptInput
       end
       item
-        DataType = ftUnknown
+        DataType = ftString
         Name = 'REF'
         ParamType = ptInput
       end>
@@ -78,6 +80,9 @@ inherited DmModelProduto: TDmModelProduto
     object DTSPRO_DATA_CADASTRO: TSQLTimeStampField
       FieldName = 'PRO_DATA_CADASTRO'
       ProviderFlags = [pfInUpdate]
+    end
+    object DTSPRO_UN_ID: TIntegerField
+      FieldName = 'PRO_UN_ID'
     end
   end
   inherited DSP: TDataSetProvider
@@ -161,5 +166,36 @@ inherited DmModelProduto: TDmModelProduto
       FieldName = 'PRO_DATA_CADASTRO'
       ProviderFlags = [pfInUpdate]
     end
+    object CDSPRO_UN_ID: TIntegerField
+      FieldName = 'PRO_UN_ID'
+    end
+  end
+  object CDSUnidade: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'DSPUnidade'
+    Left = 223
+    Top = 111
+  end
+  object DSPUnidade: TDataSetProvider
+    DataSet = DTSUnidade
+    Options = [poFetchDetailsOnDemand, poAutoRefresh, poPropogateChanges, poRetainServerOrder, poUseQuoteChar]
+    Left = 224
+    Top = 63
+  end
+  object DTSUnidade: TSQLDataSet
+    SchemaName = 'sa'
+    GetMetadata = False
+    CommandText = 'SELECT UN_ID, UN_CODIGO, UN_DESCRICAO FROM UNIDADE'
+    MaxBlobSize = -1
+    Params = <>
+    SQLConnection = dmCon.Con
+    Left = 224
+    Top = 16
+  end
+  object DSUnidade: TDataSource
+    DataSet = CDSUnidade
+    Left = 224
+    Top = 161
   end
 end

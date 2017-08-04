@@ -3,7 +3,7 @@ inherited FCadastroClientes: TFCadastroClientes
   ClientHeight = 375
   ClientWidth = 550
   ExplicitWidth = 556
-  ExplicitHeight = 403
+  ExplicitHeight = 404
   PixelsPerInch = 96
   TextHeight = 13
   inherited pnlRodape: TPanel
@@ -15,16 +15,16 @@ inherited FCadastroClientes: TFCadastroClientes
     ExplicitWidth = 550
     ExplicitHeight = 39
     inherited btnConfirma: TButton
-      Left = 6
-      Top = 4
-      ExplicitLeft = 6
-      ExplicitTop = 4
+      Left = 167
+      Top = 6
+      ExplicitLeft = 167
+      ExplicitTop = 6
     end
     inherited btnCancela: TButton
-      Left = 98
-      Top = 4
-      ExplicitLeft = 98
-      ExplicitTop = 4
+      Left = 338
+      Top = 6
+      ExplicitLeft = 338
+      ExplicitTop = 6
     end
   end
   inherited pnlPrincipal: TPanel
@@ -142,14 +142,14 @@ inherited FCadastroClientes: TFCadastroClientes
       object lblTelefone2: TLabel
         Left = 378
         Top = 160
-        Width = 75
+        Width = 74
         Height = 13
         Caption = 'Telefone (2):'
       end
       object lblTelefone1: TLabel
         Left = 259
         Top = 160
-        Width = 75
+        Width = 74
         Height = 13
         Caption = 'Telefone (1):'
       end
@@ -557,7 +557,7 @@ inherited FCadastroClientes: TFCadastroClientes
       object Label107: TLabel
         Left = 38
         Top = 20
-        Width = 51
+        Width = 50
         Height = 13
         Caption = 'Rua/Av.:'
       end

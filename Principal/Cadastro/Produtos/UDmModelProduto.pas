@@ -28,6 +28,12 @@ type
     CDSPRO_EAN: TStringField;
     DTSPRO_DATA_CADASTRO: TSQLTimeStampField;
     CDSPRO_DATA_CADASTRO: TSQLTimeStampField;
+    DTSPRO_UN_ID: TIntegerField;
+    CDSPRO_UN_ID: TIntegerField;
+    CDSUnidade: TClientDataSet;
+    DSPUnidade: TDataSetProvider;
+    DTSUnidade: TSQLDataSet;
+    DSUnidade: TDataSource;
     procedure DSPAfterUpdateRecord(Sender: TObject; SourceDS: TDataSet;
       DeltaDS: TCustomClientDataSet; UpdateKind: TUpdateKind);
     procedure CDSAfterPost(DataSet: TDataSet);
@@ -35,6 +41,8 @@ type
     procedure CDSAfterInsert(DataSet: TDataSet);
     procedure DSPGetTableName(Sender: TObject; DataSet: TDataSet;
       var TableName: string);
+    procedure DataModuleCreate(Sender: TObject);
+    procedure DataModuleDestroy(Sender: TObject);
   private
     { Private declarations }
   public
@@ -71,6 +79,20 @@ end;
 procedure TDmModelProduto.CDSAfterPost(DataSet: TDataSet);
 begin
   CDS.ApplyUpdates(0);
+end;
+
+procedure TDmModelProduto.DataModuleCreate(Sender: TObject);
+begin
+  inherited;
+
+  CDSUnidade.Open;
+end;
+
+procedure TDmModelProduto.DataModuleDestroy(Sender: TObject);
+begin
+  inherited;
+
+  CDSUnidade.Close;
 end;
 
 procedure TDmModelProduto.DSPAfterUpdateRecord(Sender: TObject;

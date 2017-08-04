@@ -7,28 +7,34 @@ uses
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UFCadastro, Data.DB, Vcl.StdCtrls,
   Vcl.ExtCtrls, Vcl.Buttons, Vcl.DBCtrls, vcl.Wwdbdatetimepicker, Vcl.Mask,
-  System.UITypes;
+  System.UITypes, Vcl.ComCtrls;
 
 type
   TFCadastroProduto = class(TFCadastro)
     Label3: TLabel;
     lblReferencia: TLabel;
     lblData: TLabel;
-    lblCusto: TLabel;
-    lblMedio: TLabel;
-    lblVenda: TLabel;
-    lblCustoReal: TLabel;
     lblEstoque: TLabel;
-    edtVenda: TDBEdit;
-    edtCustoReal: TDBEdit;
     edtEstoque: TDBEdit;
-    edtCusto: TDBEdit;
-    edtMedio: TDBEdit;
     edtDescricao: TDBEdit;
     edtReferencia: TDBEdit;
     edtEan: TDBEdit;
     lblEan: TLabel;
     data_lancto: TwwDBDateTimePicker;
+    pg_: TPageControl;
+    tabGeral: TTabSheet;
+    lblCusto: TLabel;
+    edtCusto: TDBEdit;
+    lblCustoReal: TLabel;
+    edtCustoReal: TDBEdit;
+    edtVenda: TDBEdit;
+    lblVenda: TLabel;
+    edtMedio: TDBEdit;
+    lblMedio: TLabel;
+    lblUnidade: TLabel;
+    lkpUnidade: TDBLookupComboBox;
+    lkpDepartamento: TDBLookupComboBox;
+    lblDepartamento: TLabel;
     procedure btnConfirmaClick(Sender: TObject);
     procedure edtReferenciaExit(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -45,7 +51,7 @@ implementation
 
 {$R *.dfm}
 
-uses UControllerProduto;
+uses UControllerProduto, UDmModelProduto;
 
 procedure TFCadastroProduto.btnConfirmaClick(Sender: TObject);
 var

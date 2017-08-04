@@ -232,7 +232,7 @@ function TControllerProduto.ReferenciaAutomatica: string;
 const
   SQL_NEW_REFERENCIA =
     ' SELECT '+
-    '   MAX(CONVERT(INT, PRO_REFERENCIA) +1 ) NEW_REFERENCIA '+
+    '   ISNULL(MAX(CONVERT(INT, PRO_REFERENCIA)),0) +1 NEW_REFERENCIA '+
     ' FROM '+
     '   PRODUTOS ';
 begin
