@@ -40,7 +40,7 @@ implementation
 
 uses
   UFConsultaClientes, UDmImagens, UFConsultaProduto, UFConsultaFornecedor, ULogin,
-  UFunc, UFDav, UFConsultaUnidade;
+  UFunc, UFDav, UFConsultaUnidade, UFConsultaDav;
 {$R *.dfm}
 
 procedure TUFrmPrincipal.ClientesClick(Sender: TObject);
@@ -91,7 +91,8 @@ end;
 
 procedure TUFrmPrincipal.VendaClick(Sender: TObject);
 begin
-  TFunc.CriaForm(TFDav);
+//  TFunc.CriaForm(TFDav);
+  TFunc.CriaForm(TFConsultaDav);
 end;
 
 end.

@@ -74,9 +74,9 @@ function TControllerPesqCliente.Filter(const AParams: array of const): boolean;
 const
   SQL =
     ' SELECT '+
-    '   PRO_ID, PRO_REFERENCIA, PRO_DESCRICAO,  PRO_ESTOQUE '+
+    '   CLI_ID, CLI_NOME, CLI_CIDADE '+
     ' FROM '+
-    '   PRODUTOS ';
+    '   CLIENTES ';
 var
   search: string;
 begin
@@ -84,13 +84,13 @@ begin
   search := string(AParams[1].VAnsiString);
 
   case toInteger(AParams[0]) of
-    0: begin  //Descrição
-          DmModelPesqCliente.DTS.CommandText:= SQL+' where (pro_descricao like :pro_descricao) order by PRO_DESCRICAO ';
+    0: begin  //Nome
+          DmModelPesqCliente.DTS.CommandText:= SQL+' where (cli_nome like :cli_nome) order by cli_nome ';
           //
           SearchByParams([search + '%'])
        end;
-    1: begin //Referencia
-          DmModelPesqCliente.DTS.CommandText:= SQL+' where (pro_referencia like :referencia) order by PRO_REFERENCIA ';
+    1: begin //Código
+          DmModelPesqCliente.DTS.CommandText:= SQL+' where (convert(varchar(10), cli_id) like :cli_id) order by cli_nome ';
           //
           SearchByParams([search + '%']);
        end;

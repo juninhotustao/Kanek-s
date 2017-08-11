@@ -13,7 +13,7 @@ inherited frm_PesqProduto: Tfrm_PesqProduto
     Width = 579
     Height = 306
     ExplicitWidth = 579
-    ExplicitHeight = 315
+    ExplicitHeight = 306
     inherited Grid: TDBGrid
       Width = 579
       Height = 242

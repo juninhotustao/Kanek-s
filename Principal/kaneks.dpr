@@ -44,7 +44,9 @@ uses
   UDmModelUnidade in 'Cadastro\Unidade\UDmModelUnidade.pas' {DmModelUnidade: TDataModule},
   UFCadastroUnidade in 'Cadastro\Unidade\UFCadastroUnidade.pas' {FCadastroUnidade},
   UFConsultaUnidade in 'Cadastro\Unidade\UFConsultaUnidade.pas' {FConsultaUnidade},
-  UControllerUnidade in 'Cadastro\Unidade\UControllerUnidade.pas';
+  UControllerUnidade in 'Cadastro\Unidade\UControllerUnidade.pas',
+  UFConsultaDav in 'Venda\DAV\UFConsultaDav.pas' {FConsultaDav},
+  UFrameCliente in 'Frames\Cliente\UFrameCliente.pas' {FrameCliente: TFrame};
 
 {$R *.res}
 

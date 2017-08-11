@@ -219,6 +219,15 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Cadastro\Unidade\UControllerUnidade.pas"/>
+        <DCCReference Include="Venda\DAV\UFConsultaDav.pas">
+            <Form>FConsultaDav</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Frames\Cliente\UFrameCliente.pas">
+            <Form>FrameCliente</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

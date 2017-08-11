@@ -8,6 +8,12 @@ uses
 
 type
   TDmModelPesqCliente = class(TDmModel)
+    DTSCLI_ID: TIntegerField;
+    DTSCLI_NOME: TStringField;
+    DTSCLI_CIDADE: TStringField;
+    CDSCLI_ID: TIntegerField;
+    CDSCLI_NOME: TStringField;
+    CDSCLI_CIDADE: TStringField;
   private
     { Private declarations }
   public
