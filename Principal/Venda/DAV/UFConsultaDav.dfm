@@ -10,31 +10,38 @@ inherited FConsultaDav: TFConsultaDav
   inherited pnlGrid: TPanel
     Width = 671
     Height = 433
+    ExplicitWidth = 671
+    ExplicitHeight = 433
     inherited Grid: TDBGrid
       Top = 155
       Width = 671
       Height = 231
+      DataSource = DS
       Columns = <
         item
           Expanded = False
+          FieldName = 'VEN_ID'
           Title.Caption = 'N'#186' Venda'
           Width = 67
           Visible = True
         end
         item
           Expanded = False
+          FieldName = 'VEN_DATA'
           Title.Caption = 'Data'
-          Width = 83
+          Width = 114
           Visible = True
         end
         item
           Expanded = False
+          FieldName = 'VEN_TOTAL'
           Title.Caption = 'Total'
           Width = 92
           Visible = True
         end
         item
           Expanded = False
+          FieldName = 'CLI_NOME'
           Title.Caption = 'Cliente'
           Width = 341
           Visible = True
@@ -43,7 +50,7 @@ inherited FConsultaDav: TFConsultaDav
     inherited pnlConsulta: TPanel
       Width = 671
       Height = 155
-      ExplicitWidth = 618
+      ExplicitWidth = 671
       ExplicitHeight = 155
       object groupPesquisa: TGroupBox
         Left = 8
@@ -60,14 +67,14 @@ inherited FConsultaDav: TFConsultaDav
           Enabled = False
         end
         object lblDataInicial: TLabel
-          Left = 179
+          Left = 184
           Top = 78
           Width = 57
           Height = 13
           Caption = 'Data Inicial:'
         end
         object lblDataFinal: TLabel
-          Left = 338
+          Left = 340
           Top = 78
           Width = 48
           Height = 13
@@ -152,34 +159,6 @@ inherited FConsultaDav: TFConsultaDav
           Enabled = False
           TabOrder = 3
         end
-        object dtInicial: TwwDBDateTimePicker
-          Left = 179
-          Top = 97
-          Width = 139
-          Height = 21
-          CalendarAttributes.Font.Charset = DEFAULT_CHARSET
-          CalendarAttributes.Font.Color = clWindowText
-          CalendarAttributes.Font.Height = -11
-          CalendarAttributes.Font.Name = 'Tahoma'
-          CalendarAttributes.Font.Style = []
-          Epoch = 1950
-          ShowButton = True
-          TabOrder = 4
-        end
-        object dtFinal: TwwDBDateTimePicker
-          Left = 338
-          Top = 97
-          Width = 139
-          Height = 21
-          CalendarAttributes.Font.Charset = DEFAULT_CHARSET
-          CalendarAttributes.Font.Color = clWindowText
-          CalendarAttributes.Font.Height = -11
-          CalendarAttributes.Font.Name = 'Tahoma'
-          CalendarAttributes.Font.Style = []
-          Epoch = 1950
-          ShowButton = True
-          TabOrder = 5
-        end
         object chkNumero: TCheckBox
           Left = 119
           Top = 99
@@ -188,18 +167,56 @@ inherited FConsultaDav: TFConsultaDav
           Caption = 'Todos'
           Checked = True
           State = cbChecked
-          TabOrder = 6
+          TabOrder = 4
           OnClick = chkNumeroClick
+        end
+        object dtInicial: TwwDBDateTimePicker
+          Left = 184
+          Top = 97
+          Width = 133
+          Height = 21
+          CalendarAttributes.Font.Charset = DEFAULT_CHARSET
+          CalendarAttributes.Font.Color = clWindowText
+          CalendarAttributes.Font.Height = -11
+          CalendarAttributes.Font.Name = 'MS Sans Serif'
+          CalendarAttributes.Font.Style = []
+          Color = 16056319
+          Epoch = 1950
+          ShowButton = True
+          TabOrder = 5
+          DisplayFormat = 'dd/mm/yyyy hh:mm:ss'
+        end
+        object dtFinal: TwwDBDateTimePicker
+          Left = 340
+          Top = 97
+          Width = 133
+          Height = 21
+          CalendarAttributes.Font.Charset = DEFAULT_CHARSET
+          CalendarAttributes.Font.Color = clWindowText
+          CalendarAttributes.Font.Height = -11
+          CalendarAttributes.Font.Name = 'MS Sans Serif'
+          CalendarAttributes.Font.Style = []
+          Color = 16056319
+          Epoch = 1950
+          ShowButton = True
+          TabOrder = 6
+          DisplayFormat = 'dd/mm/yyyy hh:mm:ss'
         end
       end
     end
     inherited pnlRodape: TPanel
       Top = 386
       Width = 671
+      ExplicitTop = 386
+      ExplicitWidth = 671
+      inherited BtnNovo: TButton
+        OnClick = BtnNovoClick
+      end
     end
   end
   inherited DS: TDataSource
     DataSet = DmModelDav.CDS
-    Top = 232
+    Left = 472
+    Top = 256
   end
 end

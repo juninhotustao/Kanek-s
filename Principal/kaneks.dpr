@@ -33,8 +33,6 @@ uses
   USingletonLogin in 'Login\USingletonLogin.pas',
   UDmModelVenda in 'Venda\UDmModelVenda.pas' {DmModelVenda: TDataModule},
   UControllerVenda in 'Venda\UControllerVenda.pas' {$R *.res},
-  UFVendaBase in 'Venda\UFVendaBase.pas' {FVendaBase},
-  UFDav in 'Venda\DAV\UFDav.pas' {FDav},
   UControllerDav in 'Venda\DAV\UControllerDav.pas',
   UDmModelDav in 'Venda\DAV\UDmModelDav.pas' {DmModelDav: TDataModule},
   UFrameProduto in 'Frames\Produto\UFrameProduto.pas' {frameProduto: TFrame},
@@ -46,7 +44,9 @@ uses
   UFConsultaUnidade in 'Cadastro\Unidade\UFConsultaUnidade.pas' {FConsultaUnidade},
   UControllerUnidade in 'Cadastro\Unidade\UControllerUnidade.pas',
   UFConsultaDav in 'Venda\DAV\UFConsultaDav.pas' {FConsultaDav},
-  UFrameCliente in 'Frames\Cliente\UFrameCliente.pas' {FrameCliente: TFrame};
+  UFrameCliente in 'Frames\Cliente\UFrameCliente.pas' {FrameCliente: TFrame},
+  UFVenda in 'Venda\UFVenda.pas' {FVenda},
+  UFDav in 'Venda\DAV\UFDav.pas' {FDav};
 
 {$R *.res}
 

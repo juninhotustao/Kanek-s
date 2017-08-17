@@ -8,13 +8,6 @@ uses
 
 type
   TDmModelDav = class(TDmModelVenda)
-    DTSVEN_ID: TIntegerField;
-    DTSVEN_DATA: TSQLTimeStampField;
-    DTSCLI_ID: TIntegerField;
-    DTSVEN_TOTAL: TFMTBCDField;
-    DTSVEN_DESCONTO: TFMTBCDField;
-    DTSVEN_SITUACAO: TStringField;
-    DTSVEN_OBSERVACAO: TStringField;
     DTSItemITV_ID: TIntegerField;
     DTSItemVEN_ID: TIntegerField;
     DTSItemVEN_DATA: TSQLTimeStampField;
@@ -27,6 +20,15 @@ type
     DTSItemITV_DATA: TSQLTimeStampField;
     DTSItemITV_UN: TStringField;
     DTSItemITV_DESCRICAO: TStringField;
+    DTSVEN_ID: TIntegerField;
+    DTSVEN_DATA: TSQLTimeStampField;
+    DTSCLI_ID: TIntegerField;
+    DTSCLI_NOME: TStringField;
+    DTSVEN_TOTAL: TFMTBCDField;
+    DTSVEN_DESCONTO: TFMTBCDField;
+    DTSVEN_SITUACAO: TStringField;
+    DTSVEN_OBSERVACAO: TStringField;
+    CDSCLI_NOME: TStringField;
     procedure DSPGetTableName(Sender: TObject; DataSet: TDataSet;
       var TableName: string);
     procedure CDSAfterPost(DataSet: TDataSet);

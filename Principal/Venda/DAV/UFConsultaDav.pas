@@ -5,7 +5,8 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UFConsulta, Data.DB, Vcl.StdCtrls,
-  Vcl.Grids, Vcl.DBGrids, Vcl.ExtCtrls, vcl.Wwdbdatetimepicker, UFrameCliente;
+  Vcl.Grids, Vcl.DBGrids, Vcl.ExtCtrls, vcl.Wwdbdatetimepicker, UFrameCliente,
+  Vcl.ComCtrls;
 
 type
   TFConsultaDav = class(TFConsulta)
@@ -15,16 +16,17 @@ type
     chkClientes: TCheckBox;
     lblNumero: TLabel;
     edtNumero: TEdit;
-    dtInicial: TwwDBDateTimePicker;
-    dtFinal: TwwDBDateTimePicker;
     lblDataInicial: TLabel;
     lblDataFinal: TLabel;
     chkNumero: TCheckBox;
+    dtInicial: TwwDBDateTimePicker;
+    dtFinal: TwwDBDateTimePicker;
     procedure FrameDavClientebtnPesqClienteClick(Sender: TObject);
     procedure chkClientesClick(Sender: TObject);
     procedure chkNumeroClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnPesquisarClick(Sender: TObject);
+    procedure BtnNovoClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -38,36 +40,55 @@ implementation
 
 {$R *.dfm}
 
-uses UControllerDav, UDmModelDav;
+uses UControllerDav, UDmModelDav, UFDav;
+
+procedure TFConsultaDav.BtnNovoClick(Sender: TObject);
+begin
+  with TFDav.Create(nil) do
+  try
+    ShowModal;
+  finally
+    Free;
+  end;
+  Grid.SetFocus;
+end;
 
 procedure TFConsultaDav.btnPesquisarClick(Sender: TObject);
   const
-    SQLPRODUTO =
+    SQL =
       ' SELECT '+
-      '   VEN_ID, VEN_DATA, VEN_TOTAL, CLI_ID, CLI_NOME '+
+      '	VEN_ID, VEN_DATA, C.CLI_ID, VEN_TOTAL, VEN_DESCONTO, '+
+	    ' VEN_SITUACAO, VEN_OBSERVACAO '+
       ' FROM '+
       '	  VENDA V '+
       ' LEFT JOIN '+
-      '   CLIENTES C ON V.CLI_ID = C.CLI_ID'+
-      'WHERE '+
-      '  CONVERT(VARCHAR(10), CLI_ID) LIKE :CLI_ID AND ' +
+      '   CLIENTES C ON V.CLI_ID = C.CLI_ID '+
+      ' WHERE '+
+      '  CONVERT(VARCHAR(10), C.CLI_ID) LIKE :CLI_ID AND ' +
       '  CONVERT(VARCHAR(10), VEN_ID) LIKE :VEN_ID AND ' +
-      '  VEN_DATA BETWEEN :DT_INICIAL AND DT_FINAL ';
+      '  VEN_DATA BETWEEN :DT_INICIAL AND :DT_FINAL ';
 begin
   { 0 - CLIENTE 1 - NUMERO DA VENDA  2 - DATA INICIAL  3 - DATA FINAL }
 
-//parametros
+  DmModelDav.CDS.Close;
 
+  DmModelDav.CDS.Params[0].Value := '%';
+  DmModelDav.CDS.Params[1].Value := '%';
+  DmModelDav.CDS.Params[2].Value := dtInicial.DateTime;
+  DmModelDav.CDS.Params[3].Value := dtFinal.DateTime;
 
+  if not chkClientes.Checked then
+    DmModelDav.CDS.Params[0].Value := FrameDavCliente.dbCodCliente.Text;
 
+  if not chkNumero.Checked then
+    DmModelDav.CDS.Params[1].Value := edtNumero.Text;
 
+  DmModelDav.CDS.Open;
 
-  if not FController.Filter([FrameDavCliente.dbCodCliente.Text,
-      edtNumero.Text, dtInicial.DateTime, dtFinal.DateTime
-    ]) then
+  if DmModelDav.CDS.IsEmpty then
   begin
-    MessageDlg('Não foi encontrado produto na pesquisa.', mtWarning, [mbOK], 0);
-    Abort;
+    MessageDlg('Não foi encontrado DAV na pesquisa.', mtWarning, [mbOK], 0);
+    Exit;
   end
   else
     Grid.SetFocus;
@@ -87,8 +108,11 @@ end;
 
 procedure TFConsultaDav.FormCreate(Sender: TObject);
 begin
-  dtInicial.DateTime := Date+Time;
-  dtFinal.DateTime   := Date+7+Time;
+  dtInicial.DateTime := Date;
+  dtFinal.DateTime   := Date;
+
+
+  FController := TControllerDav.Create;
 end;
 
 procedure TFConsultaDav.FrameDavClientebtnPesqClienteClick(Sender: TObject);

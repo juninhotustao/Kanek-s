@@ -5,7 +5,6 @@ inherited FVendaBase: TFVendaBase
   PopupMenu = PopMenu
   OnCreate = FormCreate
   OnDestroy = FormDestroy
-  OnKeyDown = FormKeyDown
   ExplicitWidth = 682
   ExplicitHeight = 514
   PixelsPerInch = 96

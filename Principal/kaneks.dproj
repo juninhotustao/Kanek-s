@@ -176,14 +176,6 @@
         <DCCReference Include="Venda\UControllerVenda.pas">
             <Form>$R *.res</Form>
         </DCCReference>
-        <DCCReference Include="Venda\UFVendaBase.pas">
-            <Form>FVendaBase</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="Venda\DAV\UFDav.pas">
-            <Form>FDav</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="Venda\DAV\UControllerDav.pas"/>
         <DCCReference Include="Venda\DAV\UDmModelDav.pas">
             <Form>DmModelDav</Form>
@@ -227,6 +219,14 @@
             <Form>FrameCliente</Form>
             <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Venda\UFVenda.pas">
+            <Form>FVenda</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Venda\DAV\UFDav.pas">
+            <Form>FDav</Form>
+            <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>

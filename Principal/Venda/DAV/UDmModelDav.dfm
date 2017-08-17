@@ -1,31 +1,71 @@
 inherited DmModelDav: TDmModelDav
   inherited DTS: TSQLDataSet
+    CommandText = 
+      'SELECT'#13#10'      '#9'VEN_ID, VEN_DATA, C.CLI_ID, C.CLI_NOME, VEN_TOTAL' +
+      ', VEN_DESCONTO,'#13#10#9'    VEN_SITUACAO, VEN_OBSERVACAO'#13#10'       FROM'#13 +
+      #10'      '#9'  VENDA V'#13#10'       LEFT JOIN'#13#10'         CLIENTES C ON V.CL' +
+      'I_ID = C.CLI_ID'#13#10'       WHERE'#13#10'        CONVERT(VARCHAR(10), C.CL' +
+      'I_ID) LIKE :CLI_ID AND'#13#10'        CONVERT(VARCHAR(10), VEN_ID) LIK' +
+      'E :VEN_ID AND'#13#10'        VEN_DATA BETWEEN :DT_INICIAL AND :DT_FINA' +
+      'L'
+    Params = <
+      item
+        DataType = ftString
+        Name = 'CLI_ID'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'VEN_ID'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftDateTime
+        Name = 'DT_INICIAL'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftDateTime
+        Name = 'DT_FINAL'
+        ParamType = ptInput
+      end>
     object DTSVEN_ID: TIntegerField
       FieldName = 'VEN_ID'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
     end
     object DTSVEN_DATA: TSQLTimeStampField
       FieldName = 'VEN_DATA'
+      ProviderFlags = [pfInUpdate]
     end
     object DTSCLI_ID: TIntegerField
       FieldName = 'CLI_ID'
+      ProviderFlags = []
+    end
+    object DTSCLI_NOME: TStringField
+      FieldName = 'CLI_NOME'
+      ProviderFlags = [pfInUpdate]
+      Size = 50
     end
     object DTSVEN_TOTAL: TFMTBCDField
       FieldName = 'VEN_TOTAL'
+      ProviderFlags = [pfInUpdate]
       Precision = 15
       Size = 2
     end
     object DTSVEN_DESCONTO: TFMTBCDField
       FieldName = 'VEN_DESCONTO'
+      ProviderFlags = [pfInUpdate]
       Precision = 15
       Size = 2
     end
     object DTSVEN_SITUACAO: TStringField
       FieldName = 'VEN_SITUACAO'
+      ProviderFlags = [pfInUpdate]
       Size = 1
     end
     object DTSVEN_OBSERVACAO: TStringField
       FieldName = 'VEN_OBSERVACAO'
+      ProviderFlags = [pfInUpdate]
       Size = 1000
     end
   end
@@ -34,8 +74,52 @@ inherited DmModelDav: TDmModelDav
     Top = 80
   end
   inherited CDS: TClientDataSet
+    Params = <
+      item
+        DataType = ftString
+        Name = 'CLI_ID'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'VEN_ID'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftDateTime
+        Name = 'DT_INICIAL'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftDateTime
+        Name = 'DT_FINAL'
+        ParamType = ptInput
+      end>
     inherited CDSVEN_ID: TIntegerField
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    inherited CDSVEN_DATA: TSQLTimeStampField
+      ProviderFlags = [pfInUpdate]
+    end
+    inherited CDSCLI_ID: TIntegerField
+      ProviderFlags = []
+    end
+    inherited CDSVEN_TOTAL: TFMTBCDField
+      ProviderFlags = [pfInUpdate]
+    end
+    inherited CDSVEN_DESCONTO: TFMTBCDField
+      ProviderFlags = [pfInUpdate]
+    end
+    inherited CDSVEN_SITUACAO: TStringField
+      ProviderFlags = [pfInUpdate]
+    end
+    inherited CDSVEN_OBSERVACAO: TStringField
+      ProviderFlags = [pfInUpdate]
+    end
+    object CDSCLI_NOME: TStringField
+      FieldName = 'CLI_NOME'
+      ProviderFlags = [pfInUpdate]
+      Size = 50
     end
   end
   inherited DTSItem: TSQLDataSet
